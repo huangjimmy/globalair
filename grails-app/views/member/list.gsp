@@ -22,15 +22,15 @@
                         
                    	        <g:sortableColumn property="id" title="Id" />
                         
+                   	        <g:sortableColumn property="password" title="Password" />
+                        
+                   	        <g:sortableColumn property="email" title="Email" />
+                        
                    	        <g:sortableColumn property="address" title="Address" />
                         
                    	        <g:sortableColumn property="description" title="Description" />
                         
-                   	        <g:sortableColumn property="email" title="Email" />
-                        
                    	        <g:sortableColumn property="landPhone" title="Land Phone" />
-                        
-                   	        <g:sortableColumn property="mobilePhone" title="Mobile Phone" />
                         
                         </tr>
                     </thead>
@@ -40,15 +40,15 @@
                         
                             <td><g:link action="show" id="${member.id}">${member.id?.encodeAsHTML()}</g:link></td>
                         
+                            <td>${member.password?.encodeAsHTML()}</td>
+                        
+                            <td>${member.email?.encodeAsHTML()}</td>
+                        
                             <td>${member.address?.encodeAsHTML()}</td>
                         
                             <td>${member.description?.encodeAsHTML()}</td>
                         
-                            <td>${member.email?.encodeAsHTML()}</td>
-                        
                             <td>${member.landPhone?.encodeAsHTML()}</td>
-                        
-                            <td>${member.mobilePhone?.encodeAsHTML()}</td>
                         
                         </tr>
                     </g:each>

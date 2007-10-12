@@ -1,5 +1,6 @@
 class Booking { 
-	Date date;
+	Date date;//travel date
+	Member member;
 	SeatClass seatClass;
 	String name;
 	String photoId;
@@ -9,5 +10,10 @@ class Booking {
 	String address;
 	String zipCode;
 	String remark;
+	String status;
 
+	static belongsTo = Member;
+	static constraint = {
+		status(inList:["Submitted", "Cancelled", "Ticket"])
+	}
 }	

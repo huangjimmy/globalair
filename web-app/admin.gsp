@@ -13,19 +13,13 @@
               <!--<g:each var="c" in="${grailsApplication.controllerClasses}">
                     <li class="controller"><a href="${c.logicalPropertyName}">${c.fullName}</a></li>
               </g:each>
-             
+              -->
              
 
-                    <li class="controller"><a href="airport">AirportController</a></li>
-					<li class="controller"><a href="seatClass">SeatClassController</a></li>
-					<li class="controller"><a href="staff">StaffController</a></li>
-                    <li class="controller"><a href="flight">FlightController</a></li>
-					 -->
-					 <li class="controller"><a href="flight">Search Flight</a></li>
-                    <li class="controller"><a href="member">Member Area</a></li>
-                    <li class="controller"><a href="booking">My Bookings</a></li>
-
-                    
+                    <li class="controller"><a href="airport">Manage Airport</a></li>
+					<li class="controller"><a href="seatClass">SeatClass</a></li>
+					<li class="controller"><a href="staff">Manage Staff</a></li>
+                    <li class="controller"><a href="flight">Manage Flight</a></li>    
            		
             </ul>
         </div>

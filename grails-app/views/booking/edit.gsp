@@ -33,6 +33,8 @@
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='email'>Email:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'email','errors')}'><input type="text" id='email' name='email' value="${booking?.email?.encodeAsHTML()}"/></td></tr>
                         
+				            <tr class='prop'><td valign='top' class='name'><label for='member'>Member:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'member','errors')}'><g:select optionKey="id" from="${Member.list()}" name='member.id' value="${booking?.member?.id}" ></g:select></td></tr>
+                        
 				            <tr class='prop'><td valign='top' class='name'><label for='mobilephone'>Mobilephone:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'mobilephone','errors')}'><input type="text" id='mobilephone' name='mobilephone' value="${booking?.mobilephone?.encodeAsHTML()}"/></td></tr>
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='name'>Name:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'name','errors')}'><input type="text" id='name' name='name' value="${booking?.name?.encodeAsHTML()}"/></td></tr>
@@ -44,6 +46,8 @@
 				            <tr class='prop'><td valign='top' class='name'><label for='remark'>Remark:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'remark','errors')}'><input type="text" id='remark' name='remark' value="${booking?.remark?.encodeAsHTML()}"/></td></tr>
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='seatClass'>Seat Class:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'seatClass','errors')}'><g:select optionKey="id" from="${SeatClass.list()}" name='seatClass.id' value="${booking?.seatClass?.id}" ></g:select></td></tr>
+                        
+				            <tr class='prop'><td valign='top' class='name'><label for='status'>Status:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'status','errors')}'><input type="text" id='status' name='status' value="${booking?.status?.encodeAsHTML()}"/></td></tr>
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='zipCode'>Zip Code:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'zipCode','errors')}'><input type="text" id='zipCode' name='zipCode' value="${booking?.zipCode?.encodeAsHTML()}"/></td></tr>
                         
