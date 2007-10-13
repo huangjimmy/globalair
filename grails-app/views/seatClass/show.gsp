@@ -63,6 +63,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name">Tax And Fees:</td>
+                            
+                            <td valign="top" class="value">${seatClass.taxAndFees}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name">Type:</td>
                             
                             <td valign="top" class="value">${seatClass.type}</td>

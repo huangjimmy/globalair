@@ -25,11 +25,13 @@
                     <table>
                         <tbody>
                         
+                            <tr class='prop'><td valign='top' class='name'><label for='password'>Password:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'password','errors')}'><input type="text" id='password' name='password' value="${member?.password?.encodeAsHTML()}"/></td></tr>
+                        
+                            <tr class='prop'><td valign='top' class='name'><label for='email'>Email:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'email','errors')}'><input type="text" id='email' name='email' value="${member?.email?.encodeAsHTML()}"/></td></tr>
+                        
                             <tr class='prop'><td valign='top' class='name'><label for='address'>Address:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'address','errors')}'><input type="text" id='address' name='address' value="${member?.address?.encodeAsHTML()}"/></td></tr>
                         
                             <tr class='prop'><td valign='top' class='name'><label for='description'>Description:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'description','errors')}'><input type="text" id='description' name='description' value="${member?.description?.encodeAsHTML()}"/></td></tr>
-                        
-                            <tr class='prop'><td valign='top' class='name'><label for='email'>Email:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'email','errors')}'><input type="text" id='email' name='email' value="${member?.email?.encodeAsHTML()}"/></td></tr>
                         
                             <tr class='prop'><td valign='top' class='name'><label for='landPhone'>Land Phone:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'landPhone','errors')}'><input type="text" id='landPhone' name='landPhone' value="${member?.landPhone?.encodeAsHTML()}"/></td></tr>
                         

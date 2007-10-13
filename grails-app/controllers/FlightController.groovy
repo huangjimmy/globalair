@@ -6,10 +6,27 @@ class FlightController {
     def allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
-        if(!params.max)params.max = 10
-        [ flightList: Flight.list( params ) ]
+        [ flightList: search() ]
     }
-
+    
+    def search_from = new Airport()
+    def search_to = new Airport()
+    def search()
+    {
+    	println "Search flights"
+    	println params
+    	
+    	if(params["from.id"] != null && params["to.id"] != null)
+    	{
+    		search_from = Airport.get(params["from.id"])
+        	search_to = Airport.get(params["to.id"])
+    		return Flight.findAllWhere(from:search_from, to:search_to);
+    	}
+    	
+    	if(!params.max)params.max = 10
+    	return Flight.list( params )
+    }
+    
     def show = {
         [ flight : Flight.get( params.id ) ]
     }

@@ -13,7 +13,7 @@ class Booking {
 	String status;
 
 	static belongsTo = Member;
-	static constraint = {
-		status(inList:["Submitted", "Cancelled", "Ticket"])
+	static constraints = {
+		status(inList:["Submitted", "Cancelled", "OK"])
 	}
 }	

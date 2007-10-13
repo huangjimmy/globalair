@@ -49,6 +49,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name">Member:</td>
+                            
+                            <td valign="top" class="value"><g:link controller="member" action="show" id="${booking?.member?.id}">${booking?.member}</g:link></td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name">Mobilephone:</td>
                             
                             <td valign="top" class="value">${booking.mobilephone}</td>
@@ -91,6 +98,13 @@
                         </tr>
                     
                         <tr class="prop">
+                            <td valign="top" class="name">Status:</td>
+                            
+                            <td valign="top" class="value">${booking.status}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
                             <td valign="top" class="name">Zip Code:</td>
                             
                             <td valign="top" class="value">${booking.zipCode}</td>
@@ -99,11 +113,17 @@
                     
                     </tbody>
                 </table>
+                <Strong>Price: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100}</Strong><BR />
+                    <Strong>Tax and Fee: ${booking.seatClass.taxAndFees}</Strong><BR />
+                    <Strong>Total: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100+booking.seatClass.taxAndFees}</Strong><BR />
             </div>
             <div class="buttons">
                 <g:form controller="booking">
                     <input type="hidden" name="id" value="${booking?.id}" />
                     <span class="button"><g:actionSubmit class="edit" value="Edit" /></span>
+                    <g:if test="${booking.status =='Submitted'}">
+                    <span class="button"><g:actionSubmit class="edit" onclick="return confirm('Are you sure?');" value="Cancel Booking" /></span>
+                    </g:if>
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
                 </g:form>
             </div>

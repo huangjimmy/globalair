@@ -47,12 +47,23 @@
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='seatClass'>Seat Class:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'seatClass','errors')}'><g:select optionKey="id" from="${SeatClass.list()}" name='seatClass.id' value="${booking?.seatClass?.id}" ></g:select></td></tr>
                         
-				            <tr class='prop'><td valign='top' class='name'><label for='status'>Status:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'status','errors')}'><input type="text" id='status' name='status' value="${booking?.status?.encodeAsHTML()}"/></td></tr>
+				            <tr class='prop'><td valign='top' class='name'><label for='status'>Status:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'status','errors')}'>
+				            <!--<input type="text" id='status' name='status' value="${booking?.status?.encodeAsHTML()}"/>-->
+				            <g:if test="${session.member != null}">
+				            <g:select name='status' from='[booking.status?.encodeAsHTML()]' value="${booking.status?.encodeAsHTML()}"></g:select>
+				            </g:if>
+				            <g:if test="${session.member == null}">
+				            <g:select name='status' from='${booking.constraints.status.inList.collect{it.encodeAsHTML()}}' value="${booking.status?.encodeAsHTML()}"></g:select>
+				            </g:if>
+				            </td></tr>
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='zipCode'>Zip Code:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'zipCode','errors')}'><input type="text" id='zipCode' name='zipCode' value="${booking?.zipCode?.encodeAsHTML()}"/></td></tr>
                         
                         </tbody>
                     </table>
+                    <Strong>Price: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100}</Strong><BR />
+                    <Strong>Tax and Fee: ${booking.seatClass.taxAndFees}</Strong><BR />
+                    <Strong>Total: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100+booking.seatClass.taxAndFees}</Strong><BR />
                 </div>
                 <div class="buttons">
                     <span class="button"><g:actionSubmit class="save" value="Update" /></span>

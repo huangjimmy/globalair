@@ -1,14 +1,45 @@
             
 class MemberController {
+	def login = {
+			if(params.email == null)return
+			
+			def member = Member.findByEmail(params.email);
+			if(member != null && member.password == params.password)
+			{
+				session.member = member
+				redirect(action:list);
+				println member
+			}
+	}
+	
+	def logout = {
+			session.member = null
+			redirect(action:login)
+	}
+
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
     def allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
-        if(!params.max)params.max = 10
-        [ memberList: Member.list( params ) ]
+        [ memberList: listEx() ]
     }
+	
+	def listEx = {
+			if(!params.max)params.max = 10
+			
+			if(session.member == null)
+			{
+				println "All Members"
+				return Member.list( params )
+			}
+			else
+			{
+				println "Only Member"
+				return Member.findByEmail(session.member.email);
+			}
+	}
 
     def show = {
         [ member : Member.get( params.id ) ]
