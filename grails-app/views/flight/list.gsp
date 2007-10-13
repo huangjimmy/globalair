@@ -8,7 +8,15 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
+ 
+            <g:if test="${session.member == null}">
             <span class="menuButton"><g:link class="create" action="create">New Flight</g:link></span>
+            <span class="menuButton"><g:link class="create" controller="member" action="create">New Member</g:link></span>
+            <span class="menuButton"><g:link class="create" controller="member" action="login">Member Login</g:link></span>
+            </g:if>
+            <g:if test="${session.member != null}">
+            <span class="menuButton"><g:link class="create" controller="member" action="logout">Logout ${session.member}</g:link></span>
+            </g:if>
         </div>
         <div class="body">
             <h1>Flight List</h1>
