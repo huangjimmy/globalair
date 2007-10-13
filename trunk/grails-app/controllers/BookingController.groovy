@@ -1,14 +1,22 @@
             
 class BookingController {
-	
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
     def allowedMethods = [delete:'POST', save:'POST', update:'POST']
 
     def list = {
-        if(!params.max)params.max = 10
-        [ bookingList: Booking.list( params ) ]
+        
+        [ bookingList: search() ]
+    }
+    
+    def search()
+    {
+    	if(!params.max)params.max = 10
+    	if(session.member == null)
+    		return Booking.list(params)
+    		
+    	return Booking.findAllWhere(member:session.member)
     }
 
     def show = {
@@ -75,5 +83,17 @@ class BookingController {
             render(view:'create',model:[booking:booking])
         }
     }
+    
+    def cancelBooking = {
+            def booking = Booking.get(params.id)
+            booking.status = "Cancelled"
+            if(booking.save()) {
+                flash.message = "Booking ${booking.id} Cancelled."
+                redirect(action:show,id:booking.id)
+            }
+            else {
+                
+            }
+        }
 
 }

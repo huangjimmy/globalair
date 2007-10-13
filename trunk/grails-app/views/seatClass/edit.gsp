@@ -37,6 +37,8 @@
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='flight'>Flight:</label></td><td valign='top' class='value ${hasErrors(bean:seatClass,field:'flight','errors')}'><g:select optionKey="id" from="${Flight.list()}" name='flight.id' value="${seatClass?.flight?.id}" ></g:select></td></tr>
                         
+				            <tr class='prop'><td valign='top' class='name'><label for='taxAndFees'>Tax And Fees:</label></td><td valign='top' class='value ${hasErrors(bean:seatClass,field:'taxAndFees','errors')}'><input type='text' id='taxAndFees' name='taxAndFees' value="${seatClass?.taxAndFees}" /></td></tr>
+                        
 				            <tr class='prop'><td valign='top' class='name'><label for='type'>Type:</label></td><td valign='top' class='value ${hasErrors(bean:seatClass,field:'type','errors')}'><input type="text" id='type' name='type' value="${seatClass?.type?.encodeAsHTML()}"/></td></tr>
                         
                         </tbody>

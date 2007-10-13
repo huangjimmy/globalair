@@ -9,7 +9,7 @@ environments {
 	development {
 		dataSource {
 			dbCreate = "update" // one of 'create', 'create-drop','update'
-			url = "jdbc:hsqldb:file:airdDb;shutdown=true"
+			url = "jdbc:hsqldb:file:airDb;shutdown=true"
 		}
 	}
 	test {

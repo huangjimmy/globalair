@@ -8,6 +8,14 @@
     <body>
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
+            <g:if test="${session.member == null}">
+            <span class="menuButton"><g:link class="create" action="create">New Flight</g:link></span>
+            <span class="menuButton"><g:link class="create" action="create">New Member</g:link></span>
+            <span class="menuButton"><g:link class="create" action="login">Member Login</g:link></span>
+            </g:if>
+            <g:if test="${session.member != null}">
+            <span class="menuButton"><g:link class="create" action="logout">Logout ${session.member}</g:link></span>
+            </g:if>
             <span class="menuButton"><g:link class="create" action="create">New Booking</g:link></span>
         </div>
         <div class="body">
@@ -28,9 +36,11 @@
                         
                    	        <g:sortableColumn property="email" title="Email" />
                         
+                   	        <th>Member</th>
+                   	    
                    	        <g:sortableColumn property="mobilephone" title="Mobilephone" />
-                        
-                   	        <g:sortableColumn property="name" title="Name" />
+                   	        
+                   	        <th>Total</th>
                         
                         </tr>
                     </thead>
@@ -46,9 +56,12 @@
                         
                             <td>${booking.email?.encodeAsHTML()}</td>
                         
-                            <td>${booking.mobilephone?.encodeAsHTML()}</td>
+                            <td>${booking.member?.encodeAsHTML()}</td>
                         
-                            <td>${booking.name?.encodeAsHTML()}</td>
+                            <td>${booking.mobilephone?.encodeAsHTML()}</td>
+                            <td><Strong>Price: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100}</Strong><BR />
+                    <Strong>Tax and Fee: ${booking.seatClass.taxAndFees}</Strong><BR />
+                    <Strong>Total: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100+booking.seatClass.taxAndFees}</Strong><BR /></td>
                         
                         </tr>
                     </g:each>

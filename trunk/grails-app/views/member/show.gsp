@@ -7,9 +7,15 @@
     </head>
     <body>
         <div class="nav">
-            <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
-            <span class="menuButton"><g:link class="list" action="list">Member List</g:link></span>
+        	<span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
+        	<g:if test="${session.member == null}">
             <span class="menuButton"><g:link class="create" action="create">New Member</g:link></span>
+            <span class="menuButton"><g:link class="create" action="login">Member Login</g:link></span>
+            </g:if>
+            <g:if test="${session.member != null}">
+            <span class="menuButton"><g:link class="create" action="logout">Logout ${session.member}</g:link></span>
+            </g:if>
+            <span class="menuButton"><g:link class="list" action="list">Member List</g:link></span>
         </div>
         <div class="body">
             <h1>Show Member</h1>
@@ -28,16 +34,9 @@
                         </tr>
                     
                         <tr class="prop">
-                            <td valign="top" class="name">Address:</td>
+                            <td valign="top" class="name">Password:</td>
                             
-                            <td valign="top" class="value">${member.address}</td>
-                            
-                        </tr>
-                    
-                        <tr class="prop">
-                            <td valign="top" class="name">Description:</td>
-                            
-                            <td valign="top" class="value">${member.description}</td>
+                            <td valign="top" class="value">${member.password}</td>
                             
                         </tr>
                     
@@ -45,6 +44,33 @@
                             <td valign="top" class="name">Email:</td>
                             
                             <td valign="top" class="value">${member.email}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name">Address:</td>
+                            
+                            <td valign="top" class="value">${member.address}</td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name">Bookings:</td>
+                            
+                            <td  valign="top" style="text-align:left;" class="value">
+                                <ul>
+                                <g:each var="b" in="${member.bookings}">
+                                    <li><g:link controller="booking" action="show" id="${b.id}">${b}</g:link></li>
+                                </g:each>
+                                </ul>
+                            </td>
+                            
+                        </tr>
+                    
+                        <tr class="prop">
+                            <td valign="top" class="name">Description:</td>
+                            
+                            <td valign="top" class="value">${member.description}</td>
                             
                         </tr>
                     
