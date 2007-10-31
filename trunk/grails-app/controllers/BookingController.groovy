@@ -1,5 +1,6 @@
             
 class BookingController {
+	
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
