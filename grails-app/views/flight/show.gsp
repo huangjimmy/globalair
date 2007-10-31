@@ -9,7 +9,17 @@
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
             <span class="menuButton"><g:link class="list" action="list">Flight List</g:link></span>
+            <g:if test="${session.member == null}">
             <span class="menuButton"><g:link class="create" action="create">New Flight</g:link></span>
+            </g:if>
+            
+            <g:if test="${session.member == null}">
+            <span class="menuButton"><g:link class="create" action="create">New Member</g:link></span>
+            <span class="menuButton"><g:link class="create" action="login">Member Login</g:link></span>
+            </g:if>
+            <g:if test="${session.member != null}">
+            <span class="menuButton"><g:link class="create" action="logout">Logout ${session.member}</g:link></span>
+            </g:if>
         </div>
         <div class="body">
             <h1>Show Flight</h1>
@@ -99,6 +109,7 @@
                     </tbody>
                 </table>
             </div>
+            <g:if test="${session.member == null}">
             <div class="buttons">
                 <g:form controller="flight">
                     <input type="hidden" name="id" value="${flight?.id}" />
@@ -106,6 +117,7 @@
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
                 </g:form>
             </div>
+            </g:if>
         </div>
     </body>
 </html>

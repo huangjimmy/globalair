@@ -27,7 +27,16 @@
                     <table>
                         <tbody>
                         
-				            <tr class='prop'><td valign='top' class='name'><label for='password'>Password:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'password','errors')}'><input type="text" id='password' name='password' value="${member?.password?.encodeAsHTML()}"/></td></tr>
+				            <tr class='prop'><td valign='top' class='name'>
+				            <label for='password'>Password:</label></td>
+				            <td valign='top' class='value ${hasErrors(bean:member,field:'password','errors')}'><input type="text" id='password' name='password' value="${member?.password?.encodeAsHTML()}"/></td></tr>
+                        
+                        	<tr class='prop'><td valign='top' class='name'><label for='ffpLevel'>FFP:</label></td>
+                        	<td valign='top' class='value ${hasErrors(bean:member,field:'ffpLevel','errors')}'>
+                        	<g:select name="ffpLevel" from='${member.constraints.ffpLevel.inList.collect{it.encodeAsHTML()}}' value="${member?.ffpLevel?.encodeAsHTML()}">
+                        	</g:select>
+                        	</td>
+                        	</tr>
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='email'>Email:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'email','errors')}'><input type="text" id='email' name='email' value="${member?.email?.encodeAsHTML()}"/></td></tr>
                         

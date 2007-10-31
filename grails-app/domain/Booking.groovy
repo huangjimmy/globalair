@@ -1,5 +1,6 @@
 class Booking { 
 	Date date;//travel date
+	int total
 	Member member;
 	SeatClass seatClass;
 	String name;
@@ -15,5 +16,6 @@ class Booking {
 	static belongsTo = Member;
 	static constraints = {
 		status(inList:["Submitted", "Cancelled", "OK"])
+		total(inRange:[1,50])
 	}
 }	

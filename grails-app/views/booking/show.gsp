@@ -26,6 +26,13 @@
                             <td valign="top" class="value">${booking.id}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name">Ticket Count:</td>
+                            
+                            <td valign="top" class="value">${booking.total}</td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Address:</td>
@@ -124,7 +131,9 @@
                     <g:if test="${booking.status =='Submitted'}">
                     <span class="button"><g:actionSubmit class="edit" onclick="return confirm('Are you sure?');" value="Cancel Booking" /></span>
                     </g:if>
+                    <g:if test="${session.member == null}">
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
+                    </g:if>
                 </g:form>
             </div>
         </div>
