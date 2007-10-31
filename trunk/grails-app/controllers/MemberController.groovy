@@ -79,6 +79,9 @@ class MemberController {
                 redirect(action:show,id:member.id)
             }
             else {
+            	flash.message = "Member ${params.id} was not updated."
+            	println params
+            	println member
                 render(view:'edit',model:[member:member])
             }
         }
@@ -102,6 +105,7 @@ class MemberController {
             redirect(action:show,id:member.id)
         }
         else {
+        	println params
             render(view:'create',model:[member:member])
         }
     }

@@ -46,6 +46,13 @@
                             <td valign="top" class="value">${member.email}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name">FFP:</td>
+                            
+                            <td valign="top" class="value">${member.ffpLevel}</td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Address:</td>

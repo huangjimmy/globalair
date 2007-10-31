@@ -27,6 +27,8 @@
                     <table>
                         <tbody>
                         
+                        	<tr class='prop'><td valign='top' class='name'><label for='total'>Ticket Count:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'total','errors')}'><input type="text" id='total' name='total' value="${booking?.total?.encodeAsHTML()}"/></td></tr>
+                        	                        
 				            <tr class='prop'><td valign='top' class='name'><label for='address'>Address:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'address','errors')}'><input type="text" id='address' name='address' value="${booking?.address?.encodeAsHTML()}"/></td></tr>
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='date'>Date:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'date','errors')}'><g:datePicker name='date' value="${booking?.date}" ></g:datePicker></td></tr>
@@ -67,7 +69,9 @@
                 </div>
                 <div class="buttons">
                     <span class="button"><g:actionSubmit class="save" value="Update" /></span>
+                    <g:if test="${session.member == null}">
                     <span class="button"><g:actionSubmit class="delete" onclick="return confirm('Are you sure?');" value="Delete" /></span>
+                    </g:if>
                 </div>
             </g:form>
         </div>

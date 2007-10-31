@@ -9,6 +9,14 @@
         <div class="nav">
             <span class="menuButton"><a class="home" href="${createLinkTo(dir:'')}">Home</a></span>
             <span class="menuButton"><g:link class="list" action="list">Booking List</g:link></span>
+            
+            <g:if test="${session.member == null}">
+            <span class="menuButton"><g:link class="create" action="create">New Member</g:link></span>
+            <span class="menuButton"><g:link class="create" action="login">Member Login</g:link></span>
+            </g:if>
+            <g:if test="${session.member != null}">
+            <span class="menuButton"><g:link class="create" action="logout">Logout ${session.member}</g:link></span>
+            </g:if>
         </div>
         <div class="body">
             <h1>Create Booking</h1>
@@ -25,13 +33,23 @@
                     <table>
                         <tbody>
                         
+                        	<tr class='prop'><td valign='top' class='name'><label for='count'>Ticket Count:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'total','errors')}'><input type="text" id='total' name='total' value="${booking?.total?.encodeAsHTML()}"/></td></tr>
+                        	
                             <tr class='prop'><td valign='top' class='name'><label for='address'>Address:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'address','errors')}'><input type="text" id='address' name='address' value="${booking?.address?.encodeAsHTML()}"/></td></tr>
                         
                             <tr class='prop'><td valign='top' class='name'><label for='date'>Date:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'date','errors')}'><g:datePicker name='date' value="${booking?.date}" ></g:datePicker></td></tr>
                         
                             <tr class='prop'><td valign='top' class='name'><label for='email'>Email:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'email','errors')}'><input type="text" id='email' name='email' value="${booking?.email?.encodeAsHTML()}"/></td></tr>
                         
-                            <tr class='prop'><td valign='top' class='name'><label for='member'>Member:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'member','errors')}'><g:select optionKey="id" from="${Member.list()}" name='member.id' value="${booking?.member?.id}" ></g:select></td></tr>
+                            <tr class='prop'><td valign='top' class='name'><label for='member'>Member:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'member','errors')}'>
+                            <g:if test="${session.member != null}">
+                            <g:select optionKey="id" from="${Member.findAllWhere(id:session.member.id)}" name='member.id' value="${booking?.member?.id}" ></g:select>
+                            </g:if>
+                            <g:if test="${session.member == null}">
+                            <g:select optionKey="id" from="${Member.list()}" name='member.id' value="${booking?.member?.id}" ></g:select>
+                            </g:if>
+                            </td></tr>
+                            
                         
                             <tr class='prop'><td valign='top' class='name'><label for='mobilephone'>Mobilephone:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'mobilephone','errors')}'><input type="text" id='mobilephone' name='mobilephone' value="${booking?.mobilephone?.encodeAsHTML()}"/></td></tr>
                         

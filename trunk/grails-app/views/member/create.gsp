@@ -29,6 +29,11 @@
                         
                             <tr class='prop'><td valign='top' class='name'><label for='email'>Email:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'email','errors')}'><input type="text" id='email' name='email' value="${member?.email?.encodeAsHTML()}"/></td></tr>
                         
+                        	<tr class='prop'><td valign='top' class='name'><label for='ffpLevel'>FFP:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'ffpLevel','errors')}'>
+                        	<g:select name="ffpLevel" from='${member.constraints.ffpLevel.inList.collect{it.encodeAsHTML()}}' value="${member?.ffpLevel?.encodeAsHTML()}">
+                        	</g:select>
+                        	</td></tr>
+                        	
                             <tr class='prop'><td valign='top' class='name'><label for='address'>Address:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'address','errors')}'><input type="text" id='address' name='address' value="${member?.address?.encodeAsHTML()}"/></td></tr>
                         
                             <tr class='prop'><td valign='top' class='name'><label for='description'>Description:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'description','errors')}'><input type="text" id='description' name='description' value="${member?.description?.encodeAsHTML()}"/></td></tr>

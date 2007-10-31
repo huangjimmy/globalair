@@ -16,6 +16,16 @@ class FlightController {
     	println "Search flights"
     	println params
     	
+    	session.expect_price = 0.0
+    	session.search_oper  = ">"
+    	
+    	if(params.expect_price != null && params.expect_price != "")
+    	{
+    		session.search_oper = params.price_oper
+    		session.expect_price = 0.0+Integer.parseInt(params.expect_price)
+    		println session.search_oper
+    	}
+    	
     	if(params["from.id"] != null && params["to.id"] != null)
     	{
     		search_from = Airport.get(params["from.id"])
