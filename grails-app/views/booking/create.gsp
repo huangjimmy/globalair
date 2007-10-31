@@ -81,6 +81,7 @@
                     <Strong>Price: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100}</Strong><BR />
                     <Strong>Tax and Fee: ${booking.seatClass.taxAndFees}</Strong><BR />
                     <Strong>Total: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100+booking.seatClass.taxAndFees}</Strong><BR />
+                    
                     </g:if>
                 </div>
                 <div class="buttons">

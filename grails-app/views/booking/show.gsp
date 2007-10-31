@@ -123,6 +123,13 @@
                 <Strong>Price: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100}</Strong><BR />
                     <Strong>Tax and Fee: ${booking.seatClass.taxAndFees}</Strong><BR />
                     <Strong>Total: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100+booking.seatClass.taxAndFees}</Strong><BR />
+                    
+                    <Strong>Promotions:${booking.promotionService.getPromotion(booking.date.year, booking.date.month, booking.date.day, booking.member.ffpLevel)}
+                    <BR/>
+                    You save:${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100*booking.promotionService.getDiscount()/100}
+                    <BR/>
+                    Final price:<font color=red>${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100*(100-booking.promotionService.getDiscount())/100+booking.seatClass.taxAndFees}</font>
+                    </Strong>
             </div>
             <div class="buttons">
                 <g:form controller="booking">

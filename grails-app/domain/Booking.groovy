@@ -1,4 +1,8 @@
 class Booking { 
+	
+	PromotionService promotionService = new PromotionService()
+	static transients = ['promotionService']
+	
 	Date date;//travel date
 	int total
 	Member member;
