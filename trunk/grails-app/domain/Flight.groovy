@@ -12,6 +12,11 @@ class Flight {
 	static hasMany = [seatClasses:SeatClass]
 	static mappedBy = [seatClasses: "flight"]
 	
+	double discount
+	String reason
+	
+	static transients = ['discount', 'reason']
+	
 	String toString()
 	{
 		return number+": "+from + "->" + to;

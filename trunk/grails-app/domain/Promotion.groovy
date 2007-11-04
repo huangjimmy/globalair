@@ -5,7 +5,7 @@ class Promotion {
 		switch(ffp)
 		{
 		case "Normal":
-			return 0.0
+			return -0.01
 			break
 		case "Gold":
 			return 5.0

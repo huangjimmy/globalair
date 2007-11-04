@@ -5,18 +5,21 @@ class PromotionService
 	
 	def getPromotion(int year, int month, int day, String ffp)
 	{
-		def discount = -0.1
+		final_discount = -0.1
 		def p
 		promotions.each
 		{
-			if(discount < it.getDiscount(year, month, day, ffp))
+			if(final_discount < it.getDiscount(year, month, day, ffp))
 			{
-				discount = it.getDiscount(year, month, day, ffp)
+				final_discount = it.getDiscount(year, month, day, ffp)
+				println "\t"+year+" "+month+" "+day+" "+ffp
+				println "\t"+it+"\t"+final_discount
 				p = it;
 			}
 		}
-		
-		final_discount = discount
+		println final_discount
+		println p
+
 		return p;
 	}
 	
