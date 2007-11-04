@@ -1,5 +1,8 @@
             
 class FlightController {
+	
+	Date date = new Date()
+	
     def index = { redirect(action:list,params:params) }
 
     // the delete, save and update actions only accept POST requests
@@ -11,10 +14,24 @@ class FlightController {
     
     def search_from = new Airport()
     def search_to = new Airport()
+    
+    PromotionService promotionService = new PromotionService()
+    
     def search()
     {
     	println "Search flights"
     	println params
+    	
+    	println params["date"];
+    	
+    	if(params["date"] == null)
+    		date = new Date()
+    	else 
+    	{
+    		
+    	}
+    	println date
+    	
     	
     	session.expect_price = 0.0
     	session.search_oper  = ">"
@@ -26,15 +43,42 @@ class FlightController {
     		println session.search_oper
     	}
     	
+    	def flights
+    	
     	if(params["from.id"] != null && params["to.id"] != null)
     	{
     		search_from = Airport.get(params["from.id"])
         	search_to = Airport.get(params["to.id"])
-    		return Flight.findAllWhere(from:search_from, to:search_to);
+    		flights = Flight.findAllWhere(from:search_from, to:search_to);
+    		//flights.each
+   
+    		if(session.member != null)
+        	{
+    			if(params["date"]!=null)
+    			{
+    				session.reason = promotionService.getPromotion(Integer.parseInt(params["date_year"]), Integer.parseInt(params["date_month"]), Integer.parseInt(params["date_day"]), session.member.ffpLevel)
+    			}
+    			else
+    			session.reason = promotionService.getPromotion(date.year+1900, date.month+1, date.day, session.member.ffpLevel)
+        		session.discount = promotionService.getDiscount();
+        	}
+
+    		return flights;
     	}
     	
     	if(!params.max)params.max = 10
-    	return Flight.list( params )
+    	flights = Flight.list( params )
+    	
+    	//flights.each
+
+		if(session.member != null)
+    	{
+			session.reason = promotionService.getPromotion(date.year+1900, date.month+1, date.day, session.member.ffpLevel)
+    		session.discount = promotionService.getDiscount();
+    	}
+
+    	
+    	return flights
     }
     
     def show = {

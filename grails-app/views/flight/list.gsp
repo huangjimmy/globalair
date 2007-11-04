@@ -72,9 +72,12 @@
 					       		onClick="javascript:location.href='../booking/create?seatClass.id=${s?.id}'"
 					       		/>
 					       		</g:link>
-					        
 						        <g:link controller='seatClass' action='show' id='${s.id}'>${s} Price: ${flight.basePrice*(100-s.discount)/100}</g:link>
 						        <BR/>
+						        <g:if test="${session.member != null }">
+					        	<font color=red><b>Promotion: ${session.reason}
+					        	<BR/>-${flight.basePrice*(100-s.discount)/100*session.discount/100}</b></font>
+					        	</g:if>
 						        </li>
 						    </g:findAll>
 						    </ul>
