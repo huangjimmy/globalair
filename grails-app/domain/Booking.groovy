@@ -17,6 +17,9 @@ class Booking {
 	String remark;
 	String status;
 
+	//double additional_discount
+	//String discount_reason
+	
 	static belongsTo = Member;
 	static constraints = {
 		status(inList:["Submitted", "Cancelled", "OK"])
