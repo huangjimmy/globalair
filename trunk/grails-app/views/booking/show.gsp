@@ -128,7 +128,7 @@
                     <BR/>
                     You save:${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100*booking.promotionService.getDiscount()/100}
                     <BR/>
-                    Final price:<font color=red>${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100*(100-booking.promotionService.getDiscount())/100+booking.seatClass.taxAndFees}</font>
+                    Total price:<font color=red>${booking.total*booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100*(100-booking.promotionService.getDiscount())/100+booking.seatClass.taxAndFees}</font>
                     </Strong>
             </div>
             <div class="buttons">
