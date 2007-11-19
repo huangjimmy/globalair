@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<xsd:annotation>
+		<xsd:documentation>
+			Created on Nov 05, 2007
+			Copyright 2007 SEGroup.cs.tsinghua.edu.cn. All rights reserved.
+		</xsd:documentation>
+	</xsd:annotation>
+
+	<xsd:element name="strategydefs">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="strategy" minOccurs="1" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:attribute name="type" minOccurs="1" maxOccurs="1" type="xsd:string"/>
+							<xsd:element name="rule" minOccurs="1" maxOccurs="unbounded" type="xsd:float">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:attribute name="arg1" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+										<xsd:attribute name="arg2" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+										<xsd:attribute name="arg3" minOccurs="0" maxOccurs="1" type="xsd:string"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
