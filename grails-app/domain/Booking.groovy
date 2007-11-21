@@ -1,12 +1,16 @@
 class Booking { 
 	
 	PromotionService promotionService = new PromotionService()
-	static transients = ['promotionService']
+	static transients = ['promotionService', 'flightList', 'price_oper', 'expect_price', 'search_from', 'search_to', 'search_from', 'search_to']
+	String price_oper
+	double expect_price
+	Airport search_from
+	Airport search_to
 	
 	Date date;//travel date
 	int total
 	Member member;
-	SeatClass seatClass;
+	SeatClass seatClass
 	String name;
 	String photoId;
 	String email;
@@ -16,9 +20,59 @@ class Booking {
 	String zipCode;
 	String remark;
 	String status;
+	
+	Strategy strategy
 
-	//double additional_discount
-	//String discount_reason
+	def flightList
+	
+	def getFinalBasePrice()
+	{
+		double additional = 1.0
+		if(strategy != null)
+		{
+			additional = (100-strategy.getDiscount())/100.0
+		}
+		
+		if(seatClass == null)return 0.0;
+		
+		return additional*seatClass.flight.basePrice*(100-seatClass.discount)/100.0
+	}
+	
+	def getFinalPrice()
+	{
+		return getFinalBasePrice()+seatClass.taxAndFees
+	}
+	
+	def getFinalTotalPrice()
+	{
+		return total*getFinalPrice()
+	}
+	
+	def getCalcReason()
+	{
+		if(strategy != null)return strategy.getReason()
+		return ""
+	}
+	
+	
+	boolean withCondition(SeatClass s)
+	{
+		if(expect_price == 0)return true;
+		switch(price_oper)
+		{
+		case '>':
+			return (100-s.discount)*s.flight.basePrice/100>expect_price
+			break;
+		case '<':
+			return (100-s.discount)*s.flight.basePrice/100<expect_price
+			break;
+		case '=':
+			return (100-s.discount)*s.flight.basePrice/100 - expect_price < 0.1
+			break;
+		}
+		
+		return true;
+	}
 	
 	static belongsTo = Member;
 	static constraints = {

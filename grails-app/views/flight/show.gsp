@@ -79,6 +79,13 @@
                             
                         </tr>
                     
+                    	<tr class="prop">
+                            <td valign="top" class="name">Company:</td>
+                            
+                            <td valign="top" class="value">${flight.company}</td>
+                            
+                        </tr>
+                        
                         <tr class="prop">
                             <td valign="top" class="name">Seat Classes:</td>
                             

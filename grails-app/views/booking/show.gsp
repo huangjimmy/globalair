@@ -120,15 +120,14 @@
                     
                     </tbody>
                 </table>
-                <Strong>Price: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100}</Strong><BR />
+                <Strong>Price: ${booking.getFinalBasePrice()}</Strong><BR />
                     <Strong>Tax and Fee: ${booking.seatClass.taxAndFees}</Strong><BR />
-                    <Strong>Total: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100+booking.seatClass.taxAndFees}</Strong><BR />
+                    <Strong>Unit Total: ${booking.getFinalPrice()}</Strong><BR />
                     
-                    <Strong>Promotions:${booking.promotionService.getPromotion(booking.date.year, booking.date.month, booking.date.day, booking.member.ffpLevel)}
+                    <Strong>Promotions:${booking.getCalcReason()}
                     <BR/>
-                    You save:${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100*booking.promotionService.getDiscount()/100}
-                    <BR/>
-                    Total price:<font color=red>${booking.total*booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100*(100-booking.promotionService.getDiscount())/100+booking.seatClass.taxAndFees}</font>
+                    
+                    Total price:<font color=red>${booking.getFinalTotalPrice()}</font>
                     </Strong>
             </div>
             <div class="buttons">

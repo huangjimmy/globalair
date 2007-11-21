@@ -58,6 +58,8 @@
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='name'>Name:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'name','errors')}'><input type="text" id='name' name='name' value="${member?.name?.encodeAsHTML()}"/></td></tr>
                         
+                        	<tr class='prop'><td valign='top' class='name'><label for='nick'>Nick:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'nick','errors')}'><input type="text" id='nick' name='nick' value="${member?.nick?.encodeAsHTML()}"/></td></tr>
+                        
 				            <tr class='prop'><td valign='top' class='name'><label for='zipCode'>Zip Code:</label></td><td valign='top' class='value ${hasErrors(bean:member,field:'zipCode','errors')}'><input type="text" id='zipCode' name='zipCode' value="${member?.zipCode?.encodeAsHTML()}"/></td></tr>
                         
                         </tbody>

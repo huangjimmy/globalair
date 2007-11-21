@@ -59,9 +59,17 @@
                             <td>${booking.member?.encodeAsHTML()}</td>
                         
                             <td>${booking.mobilephone?.encodeAsHTML()}</td>
-                            <td><Strong>Price: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100}</Strong><BR />
+                            <td>
+							<Strong>Price: ${booking.getFinalBasePrice()}</Strong><BR />
                     <Strong>Tax and Fee: ${booking.seatClass.taxAndFees}</Strong><BR />
-                    <Strong>Total: ${booking.seatClass.flight.basePrice*(100-booking.seatClass.discount)/100+booking.seatClass.taxAndFees}</Strong><BR /></td>
+                    <Strong>Unit Total: ${booking.getFinalPrice()}</Strong><BR />
+                    
+                    <Strong>Promotions:${booking.getCalcReason()}
+                    <BR/>
+                    
+                    Total price:<font color=red>${booking.getFinalTotalPrice()}</font>
+                    </Strong>
+							</td>
                         
                         </tr>
                     </g:each>

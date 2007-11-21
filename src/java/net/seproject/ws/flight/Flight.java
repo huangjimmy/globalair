@@ -131,4 +131,144 @@ public class Flight {
 	 */
 	private int economyClassTotalSeats;
 
+	//
+	// 以下是自动生成的get/set方法对。。。
+	//
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getFromCity() {
+		return fromCity;
+	}
+
+	public void setFromCity(String fromCity) {
+		this.fromCity = fromCity;
+	}
+
+	public String getToCity() {
+		return toCity;
+	}
+
+	public void setToCity(String toCity) {
+		this.toCity = toCity;
+	}
+
+	public String getSTD() {
+		return STD;
+	}
+
+	public void setSTD(String std) {
+		STD = std;
+	}
+
+	public String getSTA() {
+		return STA;
+	}
+
+	public void setSTA(String sta) {
+		STA = sta;
+	}
+
+	public float getMaxDiscount() {
+		return maxDiscount;
+	}
+
+	public void setMaxDiscount(float maxDiscount) {
+		this.maxDiscount = maxDiscount;
+	}
+
+	public String getDetailedDiscount() {
+		return detailedDiscount;
+	}
+
+	public void setDetailedDiscount(String detailedDiscount) {
+		this.detailedDiscount = detailedDiscount;
+	}
+
+	public int getFirstClassPrice() {
+		return firstClassPrice;
+	}
+
+	public void setFirstClassPrice(int firstClassPrice) {
+		this.firstClassPrice = firstClassPrice;
+	}
+
+	public int getBusinessClassPrice() {
+		return businessClassPrice;
+	}
+
+	public void setBusinessClassPrice(int businessClassPrice) {
+		this.businessClassPrice = businessClassPrice;
+	}
+
+	public int getEconomyClassPrice() {
+		return economyClassPrice;
+	}
+
+	public void setEconomyClassPrice(int economyClassPrice) {
+		this.economyClassPrice = economyClassPrice;
+	}
+
+	public int getFirstClassAvailableSeats() {
+		return firstClassAvailableSeats;
+	}
+
+	public void setFirstClassAvailableSeats(int firstClassAvailableSeats) {
+		this.firstClassAvailableSeats = firstClassAvailableSeats;
+	}
+
+	public int getBusinessClassAvailableSeats() {
+		return businessClassAvailableSeats;
+	}
+
+	public void setBusinessClassAvailableSeats(int businessClassAvailableSeats) {
+		this.businessClassAvailableSeats = businessClassAvailableSeats;
+	}
+
+	public int getEconomyClassAvailableSeats() {
+		return economyClassAvailableSeats;
+	}
+
+	public void setEconomyClassAvailableSeats(int economyClassAvailableSeats) {
+		this.economyClassAvailableSeats = economyClassAvailableSeats;
+	}
+
+	public int getFirstClassTotalSeats() {
+		return firstClassTotalSeats;
+	}
+
+	public void setFirstClassTotalSeats(int firstClassTotalSeats) {
+		this.firstClassTotalSeats = firstClassTotalSeats;
+	}
+
+	public int getBusinessClassTotalSeats() {
+		return businessClassTotalSeats;
+	}
+
+	public void setBusinessClassTotalSeats(int businessClassTotalSeats) {
+		this.businessClassTotalSeats = businessClassTotalSeats;
+	}
+
+	public int getEconomyClassTotalSeats() {
+		return economyClassTotalSeats;
+	}
+
+	public void setEconomyClassTotalSeats(int economyClassTotalSeats) {
+		this.economyClassTotalSeats = economyClassTotalSeats;
+	}
+
 }

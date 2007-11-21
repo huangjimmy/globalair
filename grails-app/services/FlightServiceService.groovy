@@ -1,5 +1,5 @@
-import net.seproject.ws.flight.Flight
 
+import java.util.*
 class FlightServiceService {
 	
 	boolean transactional = true
@@ -10,8 +10,34 @@ class FlightServiceService {
 		// TODO
 	}
 	
+	Strategy chooseBestStrategy(params)
+	{
+	  def strategy
+
+	  println "chooseBestStrategy"
+	  println params
+	  
+	  Strategy.list().each
+	  {
+		  
+		  if(strategy == null)
+		  {
+			  strategy = it
+		  }
+		  else if(strategy.discount < it.discount)
+		  {
+			  if(it.isApplicable(params))strategy = it
+		  }
+	  }
+	
+	  return strategy
+	}
+	
 	public String hello()
 	{
+		def b = new HashMap()
+		b.memberLevel = 5
+		println new Strategy().executeStrategy(b)
 		return "Hello"
 	}
 	
@@ -38,10 +64,46 @@ class FlightServiceService {
 	 * @see #delUser(String, String)
 	 * 
 	 */
+	 private static int cc = 0
 	public int regUser( String username, String password, String email )
 	 {
 		 def m = new Member()
+		 m.nick = username
+		 m.name = username
+		 m.password = password
+		 if(email == null || email == "")email = username+"@localhost"
+		 m.email = email
+		 ++cc
+		 switch(1+(cc%5))
+		 {
+		 case 1:
+			m.ffpLevel = "Normal"
+			break;
+		 case 2:
+			 m.ffpLevel = "VIP"
+			 break;
+		 case 3:
+			 m.ffpLevel = "Gold"
+			 break;
+		 case 4:
+			 m.ffpLevel = "Platium"
+			break;
+		 case 5:
+			 m.ffpLevel = "Premier"
+			 break;
+		 }
 		 
+	     m.address = ""
+	     m.zipCode = ""
+    	 m.landPhone = ""
+	     m.mobilePhone = ""
+		 m.description = ""
+	 
+		 println m
+		 if(m.save())
+		 {
+			 return 1+(cc%5)
+		 }
 		 return -1;
 	 }
 
@@ -63,7 +125,27 @@ class FlightServiceService {
 	 */
 	public int delUser( String username, String password )
 	 {
-		 return -1;
+		 println username+"\t"+password
+		 
+		 def m = Member.findWhere(nick:username)
+		 println m
+		 if(m == null)return 0
+		 int mid = m.id
+		 m = Member.findWhere(nick:username, password:password)
+		 println m
+		 if(m == null)return -1
+		try{
+			m.delete()
+		
+		
+			 println mid + " deleted"
+			 return mid
+		}catch(Exception ex)
+		{
+			println ex
+			return -1;
+		}
+		
 	 }
 
 	/**
@@ -99,7 +181,166 @@ class FlightServiceService {
 			int orderBy
 			)
 	 {
-		 return null;
+		 def member = Member.findByNick(username)
+		 if(member == null)
+		 {
+			 println "Invalid user"
+			 return null
+		 }
+		 
+		 if(startDate == null)
+		 {
+			 //no open ticket avaliable
+			 return null
+		 }
+		 
+		 def froms = Airport.findAllByCityLike("%"+fromCity+"%")
+		 def tos = Airport.findAllByCityLike("%"+toCity+"%")
+		 
+		 println froms
+		 println tos
+		 def flightList = []
+		 froms.each
+		 {
+			 def from = it
+			 tos.each
+			 {
+				 def to = it
+			 	 flightList += Flight.findAllWhere(from:from, to:to)
+			 	 
+			 }
+		 }
+		 println flightList
+		 
+		 def flist = []
+		 flightList.each
+		 {
+			 def fit = it
+			 println it.id +"*****************************"
+			 
+			 net.seproject.ws.flight.Flight f = new net.seproject.ws.flight.Flight()
+			 f.id = fit.number+""
+			 f.company = fit.company
+			 f.STD = "2000-01-01 "+fit.STD
+			 f.STA = "2000-01-01 "+fit.STA
+			 f.fromCity = fit.from.city
+			 f.toCity = fit.to.city
+			 
+			 def d
+
+			 if(startDate != "" && startDate != null)
+			 {
+				 startDate = startDate.replace('-', '/')
+				 d = new Date(startDate)
+				 
+			 }
+			 else
+			 {
+				 //d1 = new Date()
+			 }
+			
+			 def strategy = chooseBestStrategy(["flight":fit, "member":member, "date":d])
+			 
+			 fit.seatClasses.each
+			 {
+				 if(it.type == 'Economy' && it.code == 'E')
+				 {
+					 f.economyClassPrice = (100-it.discount)*fit.basePrice/100
+					 f.economyClassTotalSeats = it.capacity
+					 
+						 
+						 if(strategy.discount/100.0 > 1-f.maxDiscount)
+						 {
+							 f.maxDiscount = 1-strategy.discount/100.0
+						 }
+		
+						 f.economyClassAvailableSeats = it.getAvailable(["date":d, "seatClass":it])
+						 //println d
+						 //println f.economyClassAvailableSeats
+					 
+				 }
+				 else if(it.type == 'First Class')
+				 {
+					 if(strategy.discount/100.0 > 1-f.maxDiscount)
+					 {
+						 f.maxDiscount = 1-strategy.discount/100.0
+					 }
+					 f.firstClassPrice = (100-it.discount)*fit.basePrice/100
+					 f.firstClassTotalSeats = it.capacity
+					 
+
+						 f.firstClassAvailableSeats = it.getAvailable(["date":d, "seatClass":it])
+						 //println d
+					 
+				 }
+				 else if(it.type == 'Business Class')
+				 {
+					 if(strategy.discount/100.0 > 1-f.maxDiscount)
+					 {
+						 f.maxDiscount = 1-strategy.discount/100.0
+					 }
+					 f.businessClassPrice = (100-it.discount)*fit.basePrice/100
+					 f.businessClassTotalSeats = it.capacity
+					 
+					 f.businessClassAvailableSeats = it.getAvailable(["date":d, "seatClass":it])
+					 //println d
+
+				 }
+				 
+			 }
+			 
+			 def maxdis = 1.0
+			 boolean bestStrategy = false
+			 def stra
+			 def i
+			 
+			 f.detailedDiscount = ""
+			 
+			 for(i = 1 ;i<=3;++i)
+			 {
+				 maxdis = 1.0
+				 stra = null
+				 println "Policy:t"+i+" -********************"
+				 Strategy.findAllWhere(type:"t"+i).each
+				 {
+					 if(it.isApplicable(["flight":fit, "member":member, "date":d]))
+					 {
+						 if( (it.discount/100.0) >= (1-maxdis))
+						 {
+							 stra = it
+							 maxdis = 1- it.discount/100.0
+							 println "New discount selected - "+maxdis
+						 }
+					 }
+					 
+				 }
+			 
+				 
+				 if(stra == strategy)
+				 {
+					 f.detailedDiscount += i+" "+maxdis+"*<BR/>\r\n"
+				 }
+				 else if(maxdis <= 1.0)
+				 {
+					 f.detailedDiscount += i+" "+maxdis+"<BR/>\r\n"
+				 }
+				 else
+				 {
+					 f.detailedDiscount += i+" -<BR/>\r\n"
+				 }
+			 }
+			
+			//println f.detailedDiscount
+		
+			 f.detailedDiscount += "4 -<BR/>\r\n"
+			 f.detailedDiscount += "5 -<BR/>\r\n"
+			 flist += f
+		 }
+		 
+		 def fl = ["a", "b"]
+		 println fl
+		 
+		 return flist;
 	 }
 
 	/**
@@ -124,7 +365,80 @@ class FlightServiceService {
 	 */
 	public String reserve( String username, String password, String flightId, int cabin, int numbers )
 	 {
-		 return -1;
+		 def member = Member.findByNick(username)
+		 
+		 if(member == null)
+		 {
+			 println "no such user"
+			 return null
+		 }
+		 
+		 if(member.password != password){
+			 println "auth failed"
+			 return null
+		 }
+		 
+		 def f = Flight.findByNumber(flightId)
+		 if(f == null)
+		 {
+			 println "no such flight as "+flightId
+			 return null;
+		 }
+		 def seatClass
+		 switch(cabin)
+		 {
+		 case 1:
+			 seatClass = SeatClass.findWhere(flight:f, type:"First Class")
+			 break
+		 case 2:
+			 seatClass = SeatClass.findWhere(flight:f, type:"Business Class")
+			 break
+		 case 3:
+			 seatClass = SeatClass.findWhere(flight:f, type:"Economy")
+			 break
+		 }
+		 
+		 println "tickets left:"+seatClass.getAvailable(["date":null])
+		 if(numbers > seatClass.getAvailable(["date":null]))
+		 {
+			 println "not enough tickets"
+			 return null
+		 }
+		 
+		println "Ready to create a new booking..."
+		 def booking = new Booking()
+		 booking.member = member
+		 booking.total = numbers
+		 booking.status = "Submitted"
+		 booking.seatClass = seatClass
+		
+		 booking.name = ""
+		 booking.photoId = ""
+		 booking.email = ""
+		 booking.phone = ""
+		 booking.mobilephone = ""
+		 booking.address = ""
+		 booking.zipCode = ""
+		 booking.remark = "Created by Web Service"
+		 booking.strategy = chooseBestStrategy(["flight":f, "member":member, "date":null])
+		 booking.date = new Date()
+		
+		 println booking.strategy
+			 
+		 if(booking.save())
+		 {
+			 println booking
+			 return booking.id
+		 }
+		 else
+		 {
+			 booking.errors.each { error ->
+			          println error
+			  }
+			 println "Booking not created."
+		 }
+		 
+		 return null
 	 }
 
 	/**
@@ -147,7 +461,37 @@ class FlightServiceService {
 	 */
 	public int cancel( String username, String password, String orderId )
 	 {
-		 return -1;
+		def member = Member.findByNick(username)
+		 
+		 if(member == null)return -1
+		 
+		 if(member.password != password)return -1
+		 
+		 try
+		 {
+			 def order = Booking.get(Integer.parseInt(orderId))
+			 			 		 
+			 if(order.member.nick != username || order.member.password != password)return -1
+			 if(order == null)return 0
+			 
+			 order.status = "Cancelled"
+			 if(order.save())
+			 {
+				 return order.Id
+			 }
+			 else
+			 {
+				 order.errors.each { error ->
+		          println error
+				 }
+			 }
+		 }
+		catch(Exception ex)
+		{
+			return -1;
+		}
+		 
+		 return -1
 	 }
 
 	/**
@@ -180,7 +524,49 @@ class FlightServiceService {
 	 */
 	public String listOrderInfo( String username, boolean isOrderIdOnly )
 	 {
-		 return -1;
+		 if(username == null)username = ""
+		 
+		 def member  = Member.findByNick(username)
+		 if(member == null && isOrderIdOnly)
+		 {
+			 String orders = ""
+			 Booking.list().each
+			 {
+				 orders += it.id+";"
+			 }
+			 
+			 return orders
+		 }
+		 if(member != null && isOrderIdOnly)
+		 {
+			 String orders = ""
+			 Booking.findAllWhere(member:member).each
+			 {
+				 orders += it.id+";"
+			 }
+			 
+			 return orders
+		 }
+		 
+		 def bookings
+		 if(member != null)
+		 {
+			 bookings = Booking.findAllWhere(member:member)
+		 }
+		 else
+		 {
+			 bookings = Booking.list()
+		 }
+		 def orders = "[序号 Index]\t[订单号Order]\t[出发日期Date]\t[出发S]\t[到达D]\t[航班F]\t[座位Seat]\t[订单状态Status]\t[数量Total]\t[总价Amount Due]\r\n"
+		 def i = 0
+		 bookings.each
+		 {
+			 ++i
+			 orders += i+"\t"+it.id+"\t"+it.date+"\t"+it.seatClass.flight.from+"\t"+
+			 it.seatClass.flight.to+"\t"+it.seatClass.flight.number+"\t"+it.seatClass.type+"\t"+
+			 it.status+"\t"+it.total+"\t"+it.getFinalTotalPrice()+"\r\n"
+		 }
+		 return orders;
 	 }
 
 	/**
@@ -197,7 +583,16 @@ class FlightServiceService {
 	 */
 	public String listStrategies()
 	 {
-		 return -1;
+		 def stra = Strategy.findByType("wsRule")
+		 if(stra == null || stra.rule == "")
+		 {
+			 
+		 }
+		 else
+		 {
+			 return stra.rule
+		 }
+		 return "";
 	 }
 
 	/**
@@ -219,9 +614,11 @@ class FlightServiceService {
 	 * @see #listStrategies()
 	 * 
 	 */
-	public int updateStrategies( String username, String password, String newStrategies )
+	public int updateStrategies( String username, String password, String n )
 	 {
-		 return -1;
+		 if(username != "partner" || password != "12345678")return -1
+		 
+		 return -1
 	 }
 
 	/**
@@ -242,8 +639,137 @@ class FlightServiceService {
 	 * @return 是否添加/更新成功. >0: 成功; <=0: 失败. 
 	 * 
 	 */
-	public int updateData( String username, String password, net.seproject.ws.flight.Flight flight )
+	public int updateData( String username, String password, net.seproject.ws.flight.Flight f )
 	 {
+		 try{
+			 if(username != "partner" || password != "12345678")return -1
+			 def flight = Flight.findByNumber(f.id)
+			 if(flight == null)
+			 {
+				 flight = new Flight()
+			 }
+		 
+		 
+			 flight.STD = f.STD.substring(f.STD.indexOf(' '))
+			 flight.STA = f.STA.substring(f.STA.indexOf(' '))
+			 flight.number = f.id
+			 flight.company = f.company
+			 
+			 def froms = []
+			 froms += Airport.findAllByCityLike("%"+f.fromCity+"%")
+			 def tos = []
+			 tos += Airport.findAllByCityLike("%"+f.toCity+"%")
+			 
+			 println f.fromCity+"\t"+f.toCity
+			 
+			 def from
+			 def to
+			 if(froms != null && froms.size()>0)from = froms[0]
+			 if(tos != null && tos.size()>0)to = tos[0]
+			 
+			 if(from == null)
+			 {
+				 from = new Airport()
+				 from.code = f.fromCity
+				 from.city = f.fromCity
+				 from.save()
+			 }
+			 if(to == null)
+			 {
+				 to = new Airport()
+				 to.code = f.toCity
+				 to.city = f.toCity
+				 to.save()
+			 }
+			 
+			 flight.from = from
+			 flight.to = to
+			 flight.schedule = "1234567"
+			 flight.basePrice = f.economyClassPrice
+			 flight.description = ""
+			 
+			 println "Save flight first"
+			 if(flight.save())
+			 {
+				 
+			 }
+			 else
+			 {
+				 flight.errors.each { error ->
+		          println error
+				 }
+			 }
+			 println "try to install Seats"
+			 
+			 println flight.id+" \t is the new flight id in system"
+			 if(f.economyClassTotalSeats >=0)
+			 {
+				 def seat
+				 try{
+				 seat = SeatClass.findWhere(flight:flight, type:"Economy")
+				 }catch(Exception){}
+				 
+				 if(seat == null)seat = new SeatClass()
+				 flight.save()
+				 seat.flight = flight
+				 seat.type = "Economy"
+				 seat.code = "E"
+				 seat.discount = 0
+				 seat.capacity = f.economyClassTotalSeats
+				 seat.description = "Created by Web Service"
+				println "Save economy"
+				 seat.save()
+				 
+			 }
+			 
+			 if(f.businessClassTotalSeats >=0)
+			 {
+				 def seat = SeatClass.findWhere(flight:flight, type:"Business Class")
+				 if(seat == null)seat = new SeatClass()
+				 flight.save()
+				 seat.flight = flight
+				 seat.type = "Business Class"
+				 seat.code = "B"
+				 seat.discount = (1-f.businessClassPrice*1.0/flight.basePrice)*100
+				 seat.capacity = f.businessClassTotalSeats
+				 seat.description = "Created by Web Service"
+					 println "Save business"
+				 seat.save()
+			 }
+			 
+			 if(f.firstClassTotalSeats >=0)
+			 {
+				 def seat = SeatClass.findWhere(flight:flight, type:"First Class")
+				 if(seat == null)seat = new SeatClass()
+				 flight.save()
+				 seat.flight = flight
+				 seat.type = "First Class"
+				 seat.code = "F"
+				 seat.discount = (1-f.firstClassPrice*1.0/flight.basePrice)*100
+				 seat.capacity = f.firstClassTotalSeats
+				 seat.description = "Created by Web Service"
+					 println "Save first class"
+			     seat.save()
+			 }
+			 
+			 println "Save last objects"
+			 if(flight.save())
+			 {
+				 return 1
+			 }
+			 else
+			 {
+				 flight.errors.each { error ->
+		          println error
+		  }
+			 }
+		 
+		 }
+		 catch(Exception ex)
+		 {
+			 println ex
+			 return -1;
+		 }
 		 return -1;
 	 }
 
