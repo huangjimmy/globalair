@@ -1,4 +1,4 @@
-            
+
 class BookingController {
 	
     def index = { redirect(action:list,params:params) }
@@ -69,6 +69,7 @@ class BookingController {
 
     def create = {
         def booking = new Booking()
+        booking.flightList = Flight.list()
         booking.properties = params
         return ['booking':booking]
     }
@@ -76,6 +77,10 @@ class BookingController {
     def save = {
         def booking = new Booking()
         booking.properties = params
+        
+        booking.strategy = booking.seatClass.chooseStrategy(booking.date, session.member);
+        
+		 
         if(booking.save()) {
             flash.message = "Booking ${booking.id} created."
             redirect(action:show,id:booking.id)
@@ -84,6 +89,18 @@ class BookingController {
             render(view:'create',model:[booking:booking])
         }
     }
+    
+    def search = {
+    	 def booking = new Booking()
+         booking.properties = params
+         println params
+         session.search_from = Airport.get(params["from.id"])
+         session.search_to = Airport.get(params["to.id"])
+         println params.search_from
+         println params.search_to
+         booking.flightList = Flight.findAllWhere(from:session.search_from, to:session.search_to)
+ 		 render(view:'create',model:[booking:booking])
+        }
     
     def cancelBooking = {
             def booking = Booking.get(params.id)

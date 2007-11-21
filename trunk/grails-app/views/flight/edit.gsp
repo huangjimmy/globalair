@@ -38,6 +38,10 @@
 				            <tr class='prop'><td valign='top' class='name'><label for='from'>From:</label></td><td valign='top' class='value ${hasErrors(bean:flight,field:'from','errors')}'><g:select optionKey="id" from="${Airport.list()}" name='from.id' value="${flight?.from?.id}" ></g:select></td></tr>
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='number'>Number:</label></td><td valign='top' class='value ${hasErrors(bean:flight,field:'number','errors')}'><input type="text" id='number' name='number' value="${flight?.number?.encodeAsHTML()}"/></td></tr>
+                        	
+                        	<tr class='prop'><td valign='top' class='name'><label for='company'>Company:</label></td><td valign='top' class='value ${hasErrors(bean:flight,field:'company','errors')}'><input type="text" id='company' name='company' value="${flight?.company?.encodeAsHTML()}"/></td></tr>
+                        	
+                        	<tr class='prop'><td valign='top' class='name'><label for='to'>To:</label></td><td valign='top' class='value ${hasErrors(bean:flight,field:'to','errors')}'><g:select optionKey="id" from="${Airport.list()}" name='to.id' value="${flight?.to?.id}" ></g:select></td></tr>
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='seatClasses'>Seat Classes:</label></td><td valign='top' class='value ${hasErrors(bean:flight,field:'seatClasses','errors')}'><ul>
     <g:each var='s' in='${flight?.seatClasses?}'>
@@ -47,8 +51,7 @@
 <g:link controller='seatClass' params='["flight.id":flight?.id]' action='create'>Add SeatClass</g:link>
 </td></tr>
                         
-				            <tr class='prop'><td valign='top' class='name'><label for='to'>To:</label></td><td valign='top' class='value ${hasErrors(bean:flight,field:'to','errors')}'><g:select optionKey="id" from="${Airport.list()}" name='to.id' value="${flight?.to?.id}" ></g:select></td></tr>
-                        	<tr class='prop'><td valign='top' class='name'><label for='schedule'>Schedule:</label></td><td valign='top' class='value ${hasErrors(bean:flight,field:'schedule','errors')}'><input type="text" id='schedule' name='schedule' value="${flight?.schedule?.encodeAsHTML()}"/></td></tr>
+				            <tr class='prop'><td valign='top' class='name'><label for='schedule'>Schedule:</label></td><td valign='top' class='value ${hasErrors(bean:flight,field:'schedule','errors')}'><input type="text" id='schedule' name='schedule' value="${flight?.schedule?.encodeAsHTML()}"/></td></tr>
                         </tbody>
                     </table>
                 </div>

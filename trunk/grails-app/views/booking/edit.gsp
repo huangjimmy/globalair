@@ -47,8 +47,9 @@
                         
 				            <tr class='prop'><td valign='top' class='name'><label for='remark'>Remark:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'remark','errors')}'><input type="text" id='remark' name='remark' value="${booking?.remark?.encodeAsHTML()}"/></td></tr>
                         
+                        <!--
 				            <tr class='prop'><td valign='top' class='name'><label for='seatClass'>Seat Class:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'seatClass','errors')}'><g:select optionKey="id" from="${SeatClass.list()}" name='seatClass.id' value="${booking?.seatClass?.id}" ></g:select></td></tr>
-                        
+                        -->
 				            <tr class='prop'><td valign='top' class='name'><label for='status'>Status:</label></td><td valign='top' class='value ${hasErrors(bean:booking,field:'status','errors')}'>
 				            <!--<input type="text" id='status' name='status' value="${booking?.status?.encodeAsHTML()}"/>-->
 				            <g:if test="${session.member != null}">

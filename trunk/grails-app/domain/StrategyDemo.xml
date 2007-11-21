@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<strategydefs>
+
+    <!--
+
+    示例1：根据会员卡级别打折 ( "t1"代表这种策略 )
+
+    arg1: 指定会员卡级别, 1~5星级
+
+    -->
+
+  <strategy type="t1">
+    <rule arg1="1">0.70</rule>
+    <rule arg1="2">0.75</rule>
+    <rule arg1="3">0.80</rule>
+    <rule arg1="4">0.85</rule>
+    <rule arg1="5">0.90</rule>
+  </strategy>
+
+    <!--
+
+    示例2：根据某些类型/时间段打折 ( "t2"代表这种策略 )
+
+    对于酒店系统，
+    arg1: 指定客房的类别
+
+    -->
+
+  <strategy type="t2">
+    <rule arg1="商务间">0.70</rule>
+    <rule arg1="标准间">0.75</rule>
+  </strategy>
+
+    <!--
+
+    对于机票/餐饮系统，
+    arg1: 指定（每天）开始时间, 格式: hh:mm
+    arg2: 指定（每天）结束时间, 格式: hh:mm
+
+    注：这种策略应该是对每天都如此的，例如，不同时刻的航班。
+
+    -->
+
+  <strategy type="t2" >
+    <rule arg1="12:30" arg2="14:00">0.86</rule>
+    <rule arg1="14:30" arg2="16:45">0.95</rule>
+  </strategy>
+
+    <!--
+
+    示例3：根据淡季/旺季时期打折 ( "t3"代表这种策略 )
+
+    arg1: 指定淡季/旺季开始时间, 格式: yyyy-MM-dd
+    arg2: 指定淡季/旺季结束时间, 格式: yyyy-MM-dd
+    arg3: 指定淡季(=0)/旺季(>0)的标志, 如果=0,可以缺少arg1/arg2.
+
+    注：由于第2阶段需求没有规定淡季/旺季的具体定义，所以这里我们
+    可以先定义出若干旺季时期，那么其他时期就是淡季（只需定义折扣就可以了）；
+    或者反过来定义，先定义出若干淡季时期，那么其他时期就是旺季。
+
+    -->
+
+  <strategy type="t3">
+    <rule arg1="2007-11-06" arg2="2008-01-06" arg3="1">0.75</rule>
+    <rule arg1="2008-01-06" arg2="2008-03-06" arg3="2">0.85</rule>
+    <rule                                     arg3="0">0.95</rule>
+  </strategy>
+
+    <!--
+
+    示例4：除部分不参加活动外，其他统一折扣 ( "t4"代表这种策略 )
+
+    对于酒店系统，
+    arg1: 指定不参加活动的客房的类别
+
+    注：没有arg1属性的rule，是指其他类别的客房采用的统一折扣。
+
+    -->
+
+  <strategy type="t4">
+    <rule arg1="商务间"></rule>
+    <rule arg1="标准间"></rule>
+    <rule>0.75</rule>
+  </strategy>
+
+    <!--
+
+    对于机票/餐饮系统，
+    arg1: 指定不参加活动的开始时间, 格式: yyyy-MM-dd hh:mm
+    arg2: 指定不参加活动的结束时间, 格式: yyyy-MM-dd hh:mm
+
+    注：没有arg1属性的rule，是指其他时间段的机票采用的统一折扣。
+
+    -->
+
+  <strategy type="t4">
+    <rule arg1="2007-11-06 12:30" arg2="2007-11-06 14:00"></rule>
+    <rule arg1="2007-11-06 14:30" arg2="2007-11-06 16:45"></rule>
+    <rule>0.75</rule>
+  </strategy>
+
+    <!--
+
+    示例5：指定时间段内，前N名享受特别折扣 ( "t5"代表这种策略 )
+
+    arg1: 指定开始时间, 格式: yyyy-MM-dd hh:mm
+    arg2: 指定结束时间, 格式: yyyy-MM-dd hh:mm
+    arg3：指定N值
+
+    -->
+
+  <strategy type="t5">
+    <rule arg1="2007-11-06 12:30" arg2="2007-11-06 14:00" arg3="50">0.86</rule>
+    <rule arg1="2007-11-06 14:30" arg2="2007-11-06 16:45" arg3="100">0.95</rule>
+  </strategy>
+
+</strategydefs>

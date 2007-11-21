@@ -2,6 +2,7 @@ import java.sql.*
 
 class Flight {
 	String number//Flight Number
+	String company
 	String description
 	Airport from
 	Airport to 

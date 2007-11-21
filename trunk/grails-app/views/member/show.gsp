@@ -101,6 +101,13 @@
                             <td valign="top" class="value">${member.name}</td>
                             
                         </tr>
+                        
+                        <tr class="prop">
+                            <td valign="top" class="name">Nick:</td>
+                            
+                            <td valign="top" class="value">${member.nick}</td>
+                            
+                        </tr>
                     
                         <tr class="prop">
                             <td valign="top" class="name">Zip Code:</td>
