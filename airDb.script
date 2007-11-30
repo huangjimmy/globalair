@@ -15,14 +15,14 @@ ALTER TABLE BOOKING ADD CONSTRAINT FK3DB0859D9281F9A FOREIGN KEY(MEMBER_ID) REFE
 ALTER TABLE BOOKING ADD CONSTRAINT FK3DB0859FC93CFA FOREIGN KEY(STRATEGY_ID) REFERENCES STRATEGY(ID)
 ALTER TABLE AIRPORT ALTER COLUMN ID RESTART WITH 18
 ALTER TABLE BOOKING ALTER COLUMN ID RESTART WITH 39
-ALTER TABLE FLIGHT ALTER COLUMN ID RESTART WITH 8
+ALTER TABLE FLIGHT ALTER COLUMN ID RESTART WITH 9
 ALTER TABLE MEMBER ALTER COLUMN ID RESTART WITH 19
-ALTER TABLE SEAT_CLASS ALTER COLUMN ID RESTART WITH 24
+ALTER TABLE SEAT_CLASS ALTER COLUMN ID RESTART WITH 34
 ALTER TABLE STAFF ALTER COLUMN ID RESTART WITH 2
 ALTER TABLE PROMOTION ALTER COLUMN ID RESTART WITH 4
 ALTER TABLE PROMOTION2 ALTER COLUMN ID RESTART WITH 4
 ALTER TABLE PROMOTION3 ALTER COLUMN ID RESTART WITH 4
-ALTER TABLE STRATEGY ALTER COLUMN ID RESTART WITH 10
+ALTER TABLE STRATEGY ALTER COLUMN ID RESTART WITH 12
 CREATE USER SA PASSWORD ""
 GRANT DBA TO SA
 SET WRITE_DELAY 20
@@ -82,26 +82,27 @@ INSERT INTO BOOKING VALUES(35,0,'','2007-11-21 14:53:56.867000000','',NULL,'',''
 INSERT INTO BOOKING VALUES(36,0,'','2007-11-21 15:11:00.054000000','',NULL,'','','','','Created by Web Service',1,'',1,'Submitted',1,2)
 INSERT INTO BOOKING VALUES(37,0,'','2007-11-21 15:11:00.507000000','',NULL,'','','','','Created by Web Service',4,'',1,'Submitted',1,2)
 INSERT INTO BOOKING VALUES(38,0,'','2007-11-21 15:11:00.914000000','',NULL,'','','','','Created by Web Service',11,'',1,'Submitted',1,2)
-INSERT INTO FLIGHT VALUES(1,11,'       10:00','       9:00',720.0E0,'\u4eac\u6caa\u7a7a\u4e2d\u5feb\u7ebf',14,'CA1',15,'1234567','Air China')
-INSERT INTO FLIGHT VALUES(2,2,'14:00','13:00',800.0E0,'\u4eac\u6caa\u7a7a\u4e2d\u5feb\u7ebf',2,'CA2',1,'1234567','Air China')
-INSERT INTO FLIGHT VALUES(3,17,'               16:00','               10:00',2700.0E0,'\u65b0\u4e2d\u53cb\u8c0a\u822a\u7ebf',1,'SQ1',5,'1234567','Singapore Air')
-INSERT INTO FLIGHT VALUES(4,2,'+1 4:00','22:00',3000.0E0,'\u65b0\u4e2d\u53cb\u8c0a\u822a\u7ebf',5,'SQ2',1,'1234567','Singapore Air')
-INSERT INTO FLIGHT VALUES(5,3,'18:00','7:00',5000.0E0,'\u963f\u62c9\u4f2f\u4e4b\u8def',4,'SZ7',10,'1234567','China Southern Airline')
-INSERT INTO FLIGHT VALUES(6,3,'19:05','9:55',5000.0E0,'\u963f\u62c9\u4f2f\u4e4b\u8def',10,'SZ8',4,'1234567','China Southern Airline')
-INSERT INTO FLIGHT VALUES(7,16,'               15:00','               11:45',2700.0E0,'\u4eac\u6e2f\u76f4\u901a',1,'CX1',8,'1234567','Cathay Pacific')
+INSERT INTO FLIGHT VALUES(1,13,'10:00','09:00',720.0E0,'',1,'CA1',2,'1234567','Air China')
+INSERT INTO FLIGHT VALUES(2,3,'14:00','13:00',720.0E0,'',2,'CA2',1,'1234567','Air China')
+INSERT INTO FLIGHT VALUES(3,18,'16:00','10:00',2700.0E0,'',1,'SQ1',5,'1234567','Singapore Air')
+INSERT INTO FLIGHT VALUES(4,3,'+1 4:00','22:00',2700.0E0,'',5,'SQ2',1,'1234567','Singapore Air')
+INSERT INTO FLIGHT VALUES(5,6,'18:00','07:00',3000.0E0,'',4,'SZ7',10,'1234567','China Southern Airline')
+INSERT INTO FLIGHT VALUES(6,6,'19:05','09:55',3000.0E0,'',10,'SZ8',4,'1234567','China Southern Airline')
+INSERT INTO FLIGHT VALUES(7,17,'15:00','11:45',2700.0E0,'',1,'CX1',8,'1234567','Cathay Pacific')
+INSERT INTO FLIGHT VALUES(8,2,'18:00','07:00',3000.0E0,'',16,'3U567',17,'1234567','China Southern Airline')
 INSERT INTO MEMBER VALUES(1,5,'9#222 Tsinghua University','','jimmy_huang@live.com','010-62777582','13810750207','Huang Shaojun','100084','12345678','Premier','Jimmy2')
 INSERT INTO MEMBER VALUES(2,1,'','','huangsj02@mails.thu.edu.cn','','','','1','12345678','Normal','Jimmy')
-INSERT INTO MEMBER VALUES(3,1,'1','1','a@111.com','1','1','a','1','12345678','Normal','1')
+INSERT INTO MEMBER VALUES(3,1,'1','1','a@111.com','1','1','a','1','12345678','Platium','1')
 INSERT INTO MEMBER VALUES(4,0,'2','2','b@111.com','2','2','b','2','12345678','VIP','2')
 INSERT INTO MEMBER VALUES(5,2,'3','3','c@111.com','3','3','c','3','12345678','Gold','3')
 INSERT INTO SEAT_CLASS VALUES(1,2,400,'E','Created by Web Service',0.0E0,1,'Economy',285.0E0)
-INSERT INTO SEAT_CLASS VALUES(2,1,400,'E','Economy Class',10.0E0,2,'Economy',270.0E0)
+INSERT INTO SEAT_CLASS VALUES(2,2,400,'E','Created by Web Service',0.0E0,2,'Economy',270.0E0)
 INSERT INTO SEAT_CLASS VALUES(3,2,50,'F','Created by Web Service',-11.111111111111116E0,3,'First Class',310.0E0)
 INSERT INTO SEAT_CLASS VALUES(4,2,300,'E','Created by Web Service',0.0E0,3,'Economy',295.0E0)
-INSERT INTO SEAT_CLASS VALUES(5,0,50,'F','First Class',0.0E0,4,'First Class',280.0E0)
-INSERT INTO SEAT_CLASS VALUES(6,1,300,'E','Economy Class',10.0E0,4,'Economy',300.0E0)
-INSERT INTO SEAT_CLASS VALUES(7,0,150,'F','First Class',0.0E0,5,'First Class',300.0E0)
-INSERT INTO SEAT_CLASS VALUES(8,0,150,'F','First Class',0.0E0,6,'First Class',300.0E0)
+INSERT INTO SEAT_CLASS VALUES(5,1,50,'F','Created by Web Service',-11.111111111111116E0,4,'First Class',280.0E0)
+INSERT INTO SEAT_CLASS VALUES(6,2,300,'E','Created by Web Service',0.0E0,4,'Economy',300.0E0)
+INSERT INTO SEAT_CLASS VALUES(7,3,150,'F','Created by Web Service',100.0E0,5,'First Class',300.0E0)
+INSERT INTO SEAT_CLASS VALUES(8,3,150,'F','Created by Web Service',100.0E0,6,'First Class',300.0E0)
 INSERT INTO SEAT_CLASS VALUES(9,1,15,'S','Sweet Deals',60.0E0,1,'Economy',300.0E0)
 INSERT INTO SEAT_CLASS VALUES(10,0,8,'L','Luxury Seat',-20.0E0,4,'Luxury Class',600.0E0)
 INSERT INTO SEAT_CLASS VALUES(11,1,200,'E','Created by Web Service',0.0E0,7,'Economy',333.0E0)
@@ -117,6 +118,16 @@ INSERT INTO SEAT_CLASS VALUES(20,0,300,'E','Created by Web Service',0.0E0,NULL,'
 INSERT INTO SEAT_CLASS VALUES(21,0,300,'E','Created by Web Service',0.0E0,NULL,'Economy',0.0E0)
 INSERT INTO SEAT_CLASS VALUES(22,0,300,'E','Created by Web Service',0.0E0,NULL,'Economy',0.0E0)
 INSERT INTO SEAT_CLASS VALUES(23,0,300,'E','Created by Web Service',0.0E0,NULL,'Economy',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(24,1,0,'E','Created by Web Service',0.0E0,8,'Economy',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(25,3,100,'B','Created by Web Service',0.0E0,8,'Business Class',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(26,2,150,'F','Created by Web Service',100.0E0,8,'First Class',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(27,0,0,'B','Created by Web Service',100.0E0,2,'Business Class',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(28,0,0,'F','Created by Web Service',100.0E0,2,'First Class',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(29,0,0,'B','Created by Web Service',100.0E0,4,'Business Class',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(30,0,0,'E','Created by Web Service',0.0E0,5,'Economy',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(31,1,0,'B','Created by Web Service',100.0E0,5,'Business Class',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(32,0,0,'E','Created by Web Service',0.0E0,6,'Economy',0.0E0)
+INSERT INTO SEAT_CLASS VALUES(33,1,0,'B','Created by Web Service',100.0E0,6,'Business Class',0.0E0)
 INSERT INTO STAFF VALUES(1,0,'staff@globalair.com','11119','Jason Reed','98765')
 INSERT INTO PROMOTION VALUES(1,0,'Member Level')
 INSERT INTO PROMOTION VALUES(2,0,'Member Level')
@@ -127,12 +138,13 @@ INSERT INTO PROMOTION2 VALUES(3,0,'No Discount')
 INSERT INTO PROMOTION3 VALUES(1,0,'Not busy season')
 INSERT INTO PROMOTION3 VALUES(2,0,'Not busy season')
 INSERT INTO PROMOTION3 VALUES(3,0,'Not busy season')
-INSERT INTO STRATEGY VALUES(1,1,'t1',5.0E0,'ffpLevel == "Normal"','\u666e\u901a\u4f1a\u5458\u65e0\u6298\u6263')
-INSERT INTO STRATEGY VALUES(2,0,'t1',15.0E0,'ffpLevel == "Premier"','Premier\u4f1a\u545885\u6298')
-INSERT INTO STRATEGY VALUES(3,0,'t3',10.0E0,'travelDate >= new Date("2008/3/1") && travelDate <= new Date("2008/9/1")','\u6de1\u5b631')
-INSERT INTO STRATEGY VALUES(4,0,'t3',0.0E0,'true','\u65fa\u5b63')
-INSERT INTO STRATEGY VALUES(5,1,'t3',50.0E0,'travelDate >= new Date("2008/11/16") && travelDate <= new Date("2008/12/1")','\u6de1\u5b632')
-INSERT INTO STRATEGY VALUES(6,1,'t2',30.0E0,'travelTime >= new Date("2000/1/1 21:00") &&  travelTime <= new Date("2000/1/2 03:00")','\u591c\u95f4\u822a\u73ed\u6298\u6263')
-INSERT INTO STRATEGY VALUES(7,0,'t1',12.0E0,'ffpLevel == "Platium"','\u767d\u91d1\u4f1a\u5458')
-INSERT INTO STRATEGY VALUES(8,0,'t1',10.0E0,'ffpLevel == "Gold"','\u91d1\u724c\u4f1a\u5458')
-INSERT INTO STRATEGY VALUES(9,0,'wsRule',0.0E0,'','WS')
+INSERT INTO STRATEGY VALUES(1,2,'t1',5.0E0,'ffpLevel == "Normal"','Frequent Flyer')
+INSERT INTO STRATEGY VALUES(2,1,'t1',8.0E0,'ffpLevel == "VIP"','Frequent Flyer')
+INSERT INTO STRATEGY VALUES(3,2,'t3',10.0E0,'travelDate >= new Date("2008/03/01") && travelDate <= new Date("2008/09/01")','t3 Busy season or not')
+INSERT INTO STRATEGY VALUES(4,2,'t3',50.0E0,'travelDate >= new Date("2008/11/16") && travelDate <= new Date("2008/12/01")','t3 Busy season or not')
+INSERT INTO STRATEGY VALUES(5,2,'t3',0.0E0,'true','t3 Busy season or not')
+INSERT INTO STRATEGY VALUES(6,3,'t2',30.0E0,'travelTime >= new Date("2000/1/1 21:00") && travelTime <= new Date("2000/1/1 23:59")','t2 Specific range')
+INSERT INTO STRATEGY VALUES(7,1,'t1',11.0E0,'ffpLevel == "Gold"','Frequent Flyer')
+INSERT INTO STRATEGY VALUES(9,9,'wsRule',0.0E0,'<?xml version="1.0" encoding="utf-8"?> \u000d\u000a<strategydefs>\u000d\u000a\u000d\u000a<strategy type="t1">\u000d\u000a  <rule arg1="1">0.95</rule> \u000d\u000a  <rule arg1="2">0.92</rule> \u000d\u000a  <rule arg1="3">0.89</rule> \u000d\u000a  <rule arg1="4">0.88</rule> \u000d\u000a  <rule arg1="5">0.85</rule> \u000d\u000a  </strategy>\u000d\u000a<strategy type="t2">\u000d\u000a  <rule arg1="21:00" arg2="23:59">0.70</rule> \u000d\u000a  </strategy>\u000d\u000a\u000d\u000a<strategy type="t3">\u000d\u000a  <rule arg1="2008-03-01" arg2="2008-09-01" arg3="1">0.9</rule> \u000d\u000a  <rule arg1="2008-11-16" arg2="2008-12-01" arg3="2">0.5</rule> \u000d\u000a  <rule arg3="0">1.0</rule> \u000d\u000a  </strategy>\u000d\u000a  </strategydefs>','WS')
+INSERT INTO STRATEGY VALUES(10,1,'t1',12.0E0,'ffpLevel == "Platium"','Frequent Flyer')
+INSERT INTO STRATEGY VALUES(11,1,'t1',15.0E0,'ffpLevel == "Premier"','Frequent Flyer')
