@@ -10,6 +10,10 @@ class Strategy {
 	String rule
 	String description
 	
+	static constraints = {
+		rule(size:0..6000)
+	}
+	
 	String toString()
 	{
 		return rule+"("+discount+")"

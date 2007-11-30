@@ -22,11 +22,15 @@ class Booking {
 	String status;
 	
 	Strategy strategy
+	
+	double finalBasePrice = 0
 
 	def flightList
 	
 	def getFinalBasePrice()
 	{
+		if(finalBasePrice > 0)return finalBasePrice
+		
 		double additional = 1.0
 		if(strategy != null)
 		{
@@ -35,7 +39,9 @@ class Booking {
 		
 		if(seatClass == null)return 0.0;
 		
-		return additional*seatClass.flight.basePrice*(100-seatClass.discount)/100.0
+		finalBasePrice = additional*seatClass.flight.basePrice*(100-seatClass.discount)/100.0
+		
+		return finalBasePrice
 	}
 	
 	def getFinalPrice()
