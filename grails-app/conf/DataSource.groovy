@@ -1,27 +1,34 @@
 dataSource {
 	pooled = true
-	driverClassName = "org.hsqldb.jdbcDriver"
-	username = "sa"
-	password = ""
-}
-// environment specific settings
-environments {
-	development {
-		dataSource {
-			dbCreate = "update" // one of 'create', 'create-drop','update'
-			url = "jdbc:hsqldb:file:airDb;shutdown=true"
-		}
-	}
-	test {
-		dataSource {
-			dbCreate = "update"
-			url = "jdbc:hsqldb:file:airDb;shutdown=true"
-		}
-	}
-	production {
-		dataSource {
-			dbCreate = "update"
-			url = "jdbc:hsqldb:file:airDb;shutdown=true"
-		}
+	
+	
+	environments {
+	  development {
+	    dataSource {
+	    	driverClassName = "org.hsqldb.jdbcDriver"
+	    	username = "sa"
+	    	password = ""
+	    	dbCreate = "update"
+	    	url = "jdbc:hsqldb:file:airDb;shutdown=true"
+	    }
+	  }
+	  test {
+	    dataSource {
+	    	driverClassName = "org.hsqldb.jdbcDriver"
+	    	username = "sa"
+	    	password = ""
+	    	dbCreate = "update"
+		    url = "jdbc:hsqldb:file:airDb;shutdown=true"
+	    }
+	  }
+	  production {
+	    dataSource {
+	    	driverClassName = "com.mysql.jdbc.Driver"
+	    	username = "test"
+	    	password = "test"
+	    	dbCreate = "update"
+		    url = "jdbc:mysql://166.111.247.247/test"
+	    }
+	  }
 	}
 }
