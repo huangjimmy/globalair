@@ -49,19 +49,19 @@ class FlightService {
 	}
 	
 	/**
-	 * в╒╡Ар╩╦Жсц╩╖уй╨е
+	 * в╒О©╫О©╫р╩О©╫О©╫О©╫ц╩О©╫О©╫й╨О©╫
 	 * 
 	 * <br/><br/>
-	 * хн╨нхк╤╪©ивтжЗ╣дтзо╣мЁиов╒╡Ауй╨е, хГ╧Ш╦цуй╨еря╢Фтз,тР╡╩дэв╒╡АЁи╧╕.<br/>
-	 * йДхК╣дсц╩╖цШЁфвВн╙уй╨ецШЁф, м╛р╩╦Жсц╩╖цШЁфж╩дэв╒╡Ар╩╦Жм╛цШуй╨е.<br/>
-	 * хГ╧Шв╒╡АЁи╧╕, о╣мЁс╕кФ╩Зж╦╤╗уБ╦Жсц╩╖╣д╩Ат╠©╗╪╤╠П(╥жн╙1-5пг╪╤).
+	 * О©╫н╨О©╫О©╫к╤О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╣мЁО©╫О©╫в╒О©╫О©╫О©╫й╨О©╫, О©╫О©╫О©╫О©╫О©╫й╨О©╫О©╫я╢О©╫О©╫О©╫,О©╫О©╫О©╫О©╫в╒О©╫О©╫и╧О©╫.<br/>
+	 * О©╫О©╫О©╫О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫О©╫О©╫н╙О©╫й╨О©╫О©╫О©╫О©╫, м╛р╩О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫ж╩О©╫О©╫в╒О©╫О©╫р╩О©╫О©╫м╛О©╫О©╫О©╫й╨О©╫.<br/>
+	 * О©╫О©╫О©╫в╒О©╫О©╫и╧О©╫, о╣мЁс╕О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫О©╫О©╫ц╩О©╫О©╫д╩О©╫т╠О©╫О©╫О©╫О©╫О©╫О©╫(О©╫О©╫н╙1-5О©╫г╪О©╫).
 	 * <br/>
 	 * 
-	 * @param username сц╩╖цШЁф, ╡╩с╕н╙©у
-	 * @param password сц╩╖цэбК, ╡╩с╕н╙©у
-	 * @param email    сц╩╖Email╣ьж╥, ©ин╙©у
+	 * @param username О©╫ц╩О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param password О©╫ц╩О©╫О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param email    О©╫ц╩О©╫EmailО©╫О©╫ж╥, О©╫О©╫н╙О©╫О©╫
 	 * 
-	 * @return йг╥Яв╒╡АЁи╧╕. >0: в╒╡АЁи╧╕╡╒╥╣╩ь╩Ат╠©╗╪╤╠П(х║ж╣1~5); =0: сц╩╖ря╢Фтз; <0: ЁЖ╢М
+	 * @return О©╫г╥О©╫в╒О©╫О©╫и╧О©╫. >0: в╒О©╫О©╫и╧О©╫О©╫О©╫О©╫О©╫О©╫ь╩О©╫т╠О©╫О©╫О©╫О©╫О©╫О©╫(х║ж╣1~5); =0: О©╫ц╩О©╫О©╫я╢О©╫О©╫О©╫; <0: О©╫О©╫О©╫
 	 * 
 	 * @see #delUser(String, String)
 	 * 
@@ -110,17 +110,17 @@ class FlightService {
 	 }
 
 	/**
-	 * и╬ЁЩр╩╦Жсц╩╖уй╨е
+	 * и╬О©╫О©╫р╩О©╫О©╫О©╫ц╩О©╫О©╫й╨О©╫
 	 * 
 	 * <br/><br/>
-	 * сц╩╖©ирти╬ЁЩвт╪╨╣дуй╨е, ж╩р╙ж╦╤╗акуЩх╥╣дсц╩╖цШЁф/цэбК.<br/>
-	 * и╬ЁЩсц╩╖й╠, сц╩╖кЫсп╣д╦Жхкпео╒╨м╤╘╣╔пео╒╣хр╩фП╠╩и╬ЁЩ.
+	 * О©╫ц╩О©╫О©╫О©╫О©╫О©╫и╬О©╫О©╫О©╫т╪О©╫О©╫О©╫О©╫й╨О©╫, ж╩р╙ж╦О©╫О©╫О©╫О©╫О©╫О©╫х╥О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫/О©╫О©╫О©╫О©╫.<br/>
+	 * и╬О©╫О©╫О©╫ц╩О©╫й╠, О©╫ц╩О©╫О©╫О©╫О©╫п╣д╦О©╫О©╫О©╫О©╫О©╫о╒О©╫м╤О©╫О©╫О©╫О©╫О©╫о╒О©╫О©╫р╩О©╫О©╫и╬О©╫О©╫.
 	 * <br/>
 	 * 
-	 * @param username сц╩╖цШЁф, ╡╩с╕н╙©у
-	 * @param password сц╩╖цэбК, ╡╩с╕н╙©у
+	 * @param username О©╫ц╩О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param password О©╫ц╩О©╫О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
 	 * 
-	 * @return йг╥Яи╬ЁЩЁи╧╕. >0: и╬ЁЩЁи╧╕; =0: сц╩╖╡╩╢Фтз; <0: ЁЖ╢М
+	 * @return О©╫г╥О©╫и╬О©╫О©╫и╧О©╫. >0: и╬О©╫О©╫и╧О©╫; =0: О©╫ц╩О©╫О©╫О©╫О©╫О©╫О©╫О©╫; <0: О©╫О©╫О©╫
 	 * 
 	 * @see #regUser(String, String, String)
 	 * 
@@ -136,6 +136,12 @@ class FlightService {
 		 m = Member.findWhere(nick:username, password:password)
 		 println m
 		 if(m == null)return -1
+		 
+		 Booking.findAllWhere(member:m).each
+		 {
+			 it.delete()
+		 }
+		 
 		try{
 			m.delete()
 		
@@ -151,23 +157,23 @@ class FlightService {
 	 }
 
 	/**
-	 * ╡Ия╞╨╫╟Ю/╩Зф╠гИ©Ж
+	 * О©╫О©╫я╞О©╫О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫О©╫
 	 * 
 	 * <br/><br/>
-	 * ╦Ы╬щхТ╦илУ╪Ч╡Ия╞╨╫╟Ю/╩Зф╠гИ©Ж, ╡╒╟╢ж╦╤╗╣деепР╥╫й╫╥╣╩ь╨╫╟ЮоЙгИап╠М.<br/>
-	 * хГ╧Шж╦╤╗ак"ЁЖ╥╒хуфз"лУ╪Ч, тРж╩йг╡Ия╞╣╠лЛ(╪╢╣╫мМио12:00н╙ж╧)╣д╨╫╟Ю/╩Зф╠пео╒.<br/>
-	 * ╣Всц╦ц╥╫╥╗й╠, ╠ьпКж╦╤╗спп╖╣дсц╩╖цШЁф.
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫я╞О©╫О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫О©╫, О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫й╫О©╫О©╫О©╫ь╨О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫п╠О©╫.<br/>
+	 * О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫"О©╫О©╫О©╫О©╫О©╫О©╫"О©╫О©╫О©╫, О©╫О©╫ж╩О©╫г╡О©╫я╞О©╫О©╫О©╫О©╫(О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫12:00н╙ж╧)О©╫д╨О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫о╒.<br/>
+	 * О©╫О©╫О©╫ц╦ц╥О©╫О©╫О©╫й╠, О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫п╖О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫.
 	 * <br/>
 	 * 
-	 * @param username   сц╩╖цШЁф, ╡╩с╕н╙©у
-	 * @param fromCity   ЁЖ╥╒Ёгйп, н╙©уй╠╡╩ф╔еД╦цвж╤н
-	 * @param toCity     ╣╫╢ОЁгйп, н╙©уй╠╡╩ф╔еД╦цвж╤н
-	 * @param startDate  ЁЖ╥╒хуфз, ╦Яй╫: yyyy-MM-dd hh:mm, н╙©уй╠╡╩ф╔еД╦цвж╤н
-	 * @param cabin      ж╦╤╗╡у╤н(1: м╥╣х╡у; 2: илнЯ╡у; 3: ╬╜╪ц╡у), фДкШйЩж╣ж╦хнрБ╡у╤н
-	 * @param numbers    в╪╠╦т╓╤╘╣двЫн╩йЩ( >0ж╦т╓╤╘╣двЫн╩йЩ; <=0йгж╦╡╩©╪бг╨╫╟Юйг╥Я╩╧спйёсЮвЫн╩ )
-	 * @param orderBy    ╫А╧ШеепР╥╫й╫, 1: ╟╢се╩щуш©ш╢с╢С╣╫п║╣дкЁпР(х╠й║╥╫й╫); 2: ╟╢фП╥ий╠╪Д╢стГ╣╫мМ╣дкЁпР; фДкШ: ╟╢х╠й║╥╫й╫╢╕юМ 
+	 * @param username   О©╫ц╩О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param fromCity   О©╫О©╫О©╫О©╫О©╫, н╙О©╫О©╫й╠О©╫О©╫ф╔О©╫О©╫О©╫О©╫ж╤О©╫
+	 * @param toCity     О©╫О©╫О©╫О©╫О©╫О©╫О©╫, н╙О©╫О©╫й╠О©╫О©╫ф╔О©╫О©╫О©╫О©╫ж╤О©╫
+	 * @param startDate  О©╫О©╫О©╫О©╫О©╫О©╫, О©╫О©╫й╫: yyyy-MM-dd hh:mm, н╙О©╫О©╫й╠О©╫О©╫ф╔О©╫О©╫О©╫О©╫ж╤О©╫
+	 * @param cabin      ж╦О©╫О©╫О©╫у╤О©╫(1: м╥О©╫х╡О©╫; 2: О©╫О©╫О©╫О©╫О©╫; 3: О©╫О©╫О©╫ц╡О©╫), О©╫О©╫О©╫О©╫О©╫О©╫ж╣ж╦О©╫О©╫О©╫О©╫у╤О©╫
+	 * @param numbers    в╪О©╫О©╫т╓О©╫О©╫О©╫О©╫О©╫О©╫н╩О©╫О©╫( >0ж╦т╓О©╫О©╫О©╫О©╫О©╫О©╫н╩О©╫О©╫; <=0О©╫О©╫ж╦О©╫О©╫О©╫О©╫О©╫г╨О©╫О©╫О©╫О©╫г╥О©╫О©╫О©╫йёО©╫О©╫О©╫О©╫н╩ )
+	 * @param orderBy    О©╫О©╫О©╫О©╫О©╫О©╫О©╫й╫, 1: О©╫О©╫О©╫е╩О©╫О©╫ш©ш╢с╢О©╫п║О©╫О©╫кЁО©╫О©╫(х╠й║О©╫О©╫й╫); 2: О©╫О©╫О©╫О©╫О©╫й╠О©╫О©╫О©╫О©╫Г╣╫О©╫О©╫О©╫кЁО©╫О©╫; О©╫О©╫О©╫О©╫: О©╫О©╫х╠й║О©╫О©╫й╫О©╫О©╫О©╫О©╫ 
 	 * 
-	 * @return ╥Ш╨олУ╪Ч╣д╨╫╟Ю/╩Зф╠пео╒; хГ╧Шц╩спхн╨н╥Ш╨олУ╪Ч╣дпео╒,тР╥╣╩ьnull(©уж╣).
+	 * @return О©╫О©╫О©╫О©╫О©╫О©╫О©╫д╨О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫о╒; О©╫О©╫О©╫ц╩О©╫О©╫О©╫н╨н╥О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫о╒,О©╫Р╥╣╩О©╫null(О©╫О©╫ж╣).
 	 * 
 	 * @see net.seproject.ws.flight.Flight
 	 * @see #reserve(String, String, String, int, int)
@@ -183,6 +189,10 @@ class FlightService {
 			int orderBy
 			)
 	 {
+		 if(startDate == null)startDate = ""
+		 println "search flights :"+username+" "+fromCity+
+		 " "+toCity+" "+startDate
+		 
 		 def member = Member.findByNick(username)
 		 if(member == null)
 		 {
@@ -240,7 +250,7 @@ class FlightService {
 			 }
 			 else
 			 {
-				 //d1 = new Date()
+				 d = new Date()
 			 }
 			
 			 def strategy = chooseBestStrategy(["flight":fit, "member":member, "date":d])
@@ -358,45 +368,45 @@ class FlightService {
 	 }
 
 	/**
-	 * т╓╤╘дЁ╦Ж╨╫╟Ю╣д╩Зф╠
+	 * т╓О©╫О©╫дЁО©╫О©╫О©╫д╩О©╫ф╠
 	 * 
 	 * <br/><br/>
-	 * ╢с╡Ия╞╫А╧ШюОцФя║тЯ╨ойй╣д╨╫╟Ю,т╓╤╘╩Зф╠.<br/>
-	 * ╣Всц╦ц╥╫╥╗й╠, ╠ьпКж╦╤╗спп╖╣дсц╩╖цШЁф/цэбК.
+	 * О©╫с╡О©╫я╞О©╫О©╫О©╫О©╫О©╫О©╫О©╫я║О©╫О©╫О©╫О©╫й╣д╨О©╫О©╫О©╫,т╓О©╫О©╫О©╫О©╫ф╠.<br/>
+	 * О©╫О©╫О©╫ц╦ц╥О©╫О©╫О©╫й╠, О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫п╖О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫/О©╫О©╫О©╫О©╫.
 	 * <br/>
 	 * 
-	 * @param username сц╩╖цШЁф, ╡╩с╕н╙©у
-	 * @param password сц╩╖цэбК, ╡╩с╕н╙©у
-	 * @param flightId ╨╫╟Ю╨е, ╪╢Flight.idвж╤н
-	 * @param cabin    ж╦╤╗╡у╤н(1: м╥╣х╡у; 2: илнЯ╡у; 3: ╬╜╪ц╡у), фДкШйЩж╣нчп╖
-	 * @param numbers  в╪╠╦т╓╤╘╣двЫн╩йЩ(>=1уе), хГ╧Шц╩спвЦ╧╩вЫн╩, тР╡╩дэт╓╤╘Ёи╧╕.
+	 * @param username О©╫ц╩О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param password О©╫ц╩О©╫О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param flightId О©╫О©╫О©╫О©╫О©╫, О©╫О©╫Flight.idО©╫ж╤О©╫
+	 * @param cabin    ж╦О©╫О©╫О©╫у╤О©╫(1: м╥О©╫х╡О©╫; 2: О©╫О©╫О©╫О©╫О©╫; 3: О©╫О©╫О©╫ц╡О©╫), О©╫О©╫О©╫О©╫О©╫О©╫ж╣О©╫О©╫п╖
+	 * @param numbers  в╪О©╫О©╫т╓О©╫О©╫О©╫О©╫О©╫О©╫н╩О©╫О©╫(>=1О©╫О©╫), О©╫О©╫О©╫ц╩О©╫О©╫О©╫Ц╧╩О©╫О©╫н╩, О©╫О©╫О©╫О©╫т╓О©╫О©╫О©╫и╧О©╫.
 	 * 
-	 * @return хГ╧Шт╓╤╘Ёи╧╕, ╥╣╩ьуБ╦Жпб╣д╤╘╣╔╨е(вж╢╝╦Яй╫), ╥ЯтР, ╥╣╩ьnull(©уж╣).
+	 * @return О©╫О©╫О©╫т╓О©╫О©╫О©╫и╧О©╫, О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫б╣д╤О©╫О©╫О©╫О©╫О©╫(О©╫ж╢О©╫О©╫О©╫й╫), О©╫О©╫О©╫О©╫, О©╫О©╫О©╫О©╫null(О©╫О©╫ж╣).
 	 * 
 	 * @see #search(String, String, String, String, int, int, int)
 	 * @see #cancel(String, String, String)
 	 * 
 	 */
-	public String reserve( String username, String password, String flightId, int cabin, int numbers )
+	public String reserve( String username, String password, String flightId, int cabin, String startDate, int numbers )
 	 {
 		 def member = Member.findByNick(username)
 		 
 		 if(member == null)
 		 {
 			 println "no such user"
-			 return null
+			 return "no such user"
 		 }
 		 
 		 if(member.password != password){
 			 println "auth failed"
-			 return null
+			 return "auth failed"
 		 }
 		 
 		 def f = Flight.findByNumber(flightId)
 		 if(f == null)
 		 {
 			 println "no such flight as "+flightId
-			 return null;
+			 return "no such flight as "+flightId
 		 }
 		 def seatClass
 		 switch(cabin)
@@ -435,7 +445,9 @@ class FlightService {
 		 booking.zipCode = ""
 		 booking.remark = "Created by Web Service"
 		 booking.strategy = chooseBestStrategy(["flight":f, "member":member, "date":null])
-		 booking.date = new Date()
+		 try{
+		 booking.date = new Date(startDate..replace('-','/'))
+		 }catch(Exception ){booking.date = new Date()}
 		
 		 println booking.strategy
 			 
@@ -456,19 +468,19 @@ class FlightService {
 	 }
 
 	/**
-	 * х║оШр╩уе╤╘╣╔
+	 * х║О©╫О©╫р╩О©╫е╤О©╫О©╫О©╫
 	 * 
 	 * <br/><br/>
-	 * ╦Ы╬щж╦╤╗╣д╤╘╣╔╨её╛х║оШуБуе╤╘╣╔.<br/>
-	 * сц╩╖ж╩дэх║оШвт╪╨╣д╤╘╣╔.<br/>
-	 * ╣Всц╦ц╥╫╥╗й╠, ╠ьпКж╦╤╗спп╖╣дсц╩╖цШЁф/цэбК.
+	 * О©╫О©╫О©╫ж╦О©╫О©╫О©╫д╤О©╫О©╫О©╫О©╫еёО©╫х║О©╫О©╫О©╫О©╫О©╫е╤О©╫О©╫О©╫.<br/>
+	 * О©╫ц╩О©╫ж╩О©╫О©╫х║О©╫О©╫О©╫т╪О©╫О©╫д╤О©╫О©╫О©╫.<br/>
+	 * О©╫О©╫О©╫ц╦ц╥О©╫О©╫О©╫й╠, О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫п╖О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫/О©╫О©╫О©╫О©╫.
 	 * <br/>
 	 * 
-	 * @param username сц╩╖цШЁф, ╡╩с╕н╙©у
-	 * @param password сц╩╖цэбК, ╡╩с╕н╙©у
-	 * @param orderId  ╤╘╣╔╨е, ╡╩с╕н╙©у
+	 * @param username О©╫ц╩О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param password О©╫ц╩О©╫О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param orderId  О©╫О©╫О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
 	 * 
-	 * @return ╤╘╣╔йг╥Ях║оШЁи╧╕. >0: х║оШЁи╧╕; =0: ╤╘╣╔╡╩╢Фтз; <0: ЁЖ╢М
+	 * @return О©╫О©╫О©╫О©╫О©╫г╥О©╫х║О©╫О©╫и╧О©╫. >0: х║О©╫О©╫и╧О©╫; =0: О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫; <0: О©╫О©╫О©╫
 	 * 
 	 * @see #reserve(String, String, String, int, int)
 	 * 
@@ -481,17 +493,25 @@ class FlightService {
 		 
 		 if(member.password != password)return -1
 		 
+		 println "This user "+username+" want to cancel order "+orderId
+		 
 		 try
 		 {
 			 def order = Booking.get(Integer.parseInt(orderId))
+			 
+			 println "Order to cancel is " + order
 			 			 		 
-			 if(order.member.nick != username || order.member.password != password)return -1
+			 if(order.member.nick != username || order.member.password != password)
+			{
+				 println "This user "+username+" cannot cancel order "+order
+				 return -1
+			}
 			 if(order == null)return 0
 			 
 			 order.status = "Cancelled"
 			 if(order.save())
 			 {
-				 return order.Id
+				 return 1
 			 }
 			 else
 			 {
@@ -502,6 +522,7 @@ class FlightService {
 		 }
 		catch(Exception ex)
 		{
+			println ex
 			return -1;
 		}
 		 
@@ -509,29 +530,29 @@ class FlightService {
 	 }
 
 	/**
-	 * ╩Ях║╤╘╣╔пео╒
+	 * О©╫О©╫х║О©╫О©╫О©╫О©╫О©╫О©╫о╒
 	 * 
 	 * <br/><br/>
-	 * хГ╧ШisOrderIdOnlyн╙true, ╥╣╩ьсц╥ж╨е';'╥ж╦Т╣д╤╘╣╔╨еап╠М.<br/>
-	 * хГ╧ШisOrderIdOnlyн╙false, ╥╣╩ьоЙо╦╣д╤╘╣╔пео╒, ╡исцхкн╙©и╤а╣д╦Яй╫╩╞ап╠М.<br/>
+	 * О©╫О©╫О©╫isOrderIdOnlyн╙true, О©╫О©╫О©╫О©╫О©╫ц╥ж╨О©╫';'О©╫ж╦О©╫д╤О©╫О©╫О©╫О©╫О©╫О©╫п╠О©╫.<br/>
+	 * О©╫О©╫О©╫isOrderIdOnlyн╙false, О©╫О©╫О©╫О©╫О©╫О©╫о╦О©╫д╤О©╫О©╫О©╫О©╫О©╫о╒, О©╫О©╫О©╫О©╫О©╫О©╫н╙О©╫и╤uд╦О©╫й╫О©╫О©╫О©╫п╠О©╫.<br/>
 	 * <br/>
-	 * оЙо╦╣д╤╘╣╔пео╒жВр╙йг╥╫╠Цсц╩╖╡И©╢╤╘╣╔оЙгИ, с╕╤тппап╦Яй╫╫Ьппее╟Ф,<br/>
-	 * ц©пп╤тс╕р╩╦Ж╤╘╣╔,ц©╦Жвж╤н╤╪╟╢ап╤тфК,юЩхГ:<br/>
+	 * О©╫О©╫о╦О©╫д╤О©╫О©╫О©╫О©╫О©╫о╒О©╫О©╫р╙О©╫г╥О©╫О©╫О©╫О©╫ц╩О©╫О©╫И©╢О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫, с╕О©╫О©╫О©╫О©╫О©╫п╦О©╫й╫О©╫О©╫О©╫О©╫О©╫е╟О©╫,<br/>
+	 * ц©О©╫п╤О©╫с╕р╩О©╫О©╫О©╫,ц©О©╫О©╫О©╫ж╤н╤О©╫О©╫О©╫О©╫п╤О©╫О©╫О©╫,О©╫О©╫О©╫О©╫:<br/>
 	 * <br/>
 	 * 
-	 * сц╩╖цШЁф: xxxxxx ╤╘╣╔оЙгИ:<br/>
-	 * [пР╨е]    [╤╘╣╔╨е]    [ЁЖ╥╒хуфз]     [...]     [...]    ... <br/>
+	 * О©╫ц╩О©╫О©╫О©╫О©╫: xxxxxx О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫:<br/>
+	 * [О©╫О©╫О©╫]    [О©╫О©╫О©╫О©╫О©╫О©╫]    [О©╫О©╫О©╫О©╫О©╫О©╫]     [...]     [...]    ... <br/>
 	 *    1       xxxx      xxxxxxx      xxxx       xx          <br/>
 	 *    2       xxxx      xxxxxxx      xxxx       xx          <br/>
 	 *    3       xxxx      xxxxxxx      xxxx       xx          <br/>
 	 * <br/><br/>
 	 * 
-	 * хГ╧Шсц╩╖цШЁфusernameнчп╖╩Рн╙©уй╠,ж╦апЁЖкЫспсц╩╖╣д╤╘╣╔.
+	 * О©╫О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫usernameО©╫О©╫п╖О©╫О©╫н╙О©╫О©╫й╠,ж╦О©╫пЁО©╫О©╫О©╫О©╫О©╫О©╫ц╩О©╫О©╫д╤О©╫О©╫О©╫.
 	 * 
-	 * @param username сц╩╖цШЁф, ©ин╙©у (нчп╖╩Рн╙©уй╠,ж╦апЁЖкЫспсц╩╖╣д╤╘╣╔)
-	 * @param isOrderIdOnly йг╥Я╫Ж╥╣╩ь╤╘╣╔╨е╣дап╠М(н╙trueй╠), н╙falseй╠с╕╥╣╩ьоЙо╦╣д╤╘╣╔пео╒. 
+	 * @param username О©╫ц╩О©╫О©╫О©╫О©╫, О©╫О©╫н╙О©╫О©╫ (О©╫О©╫п╖О©╫О©╫н╙О©╫О©╫й╠,ж╦О©╫пЁО©╫О©╫О©╫О©╫О©╫О©╫ц╩О©╫О©╫д╤О©╫О©╫О©╫)
+	 * @param isOrderIdOnly О©╫г╥О©╫О©╫ь╤О©╫О©╫О©╫О©╫е╣О©╫О©╫п╠О©╫(н╙trueй╠), н╙falseй╠с╕О©╫О©╫О©╫О©╫О©╫О©╫о╦О©╫д╤О©╫О©╫О©╫О©╫О©╫о╒. 
 	 * 
-	 * @return ╥╣╩ьсц╥ж╨е';'╥ж╦Т╣д╤╘╣╔╨еап╠М, ╩РоЙо╦╣д╤╘╣╔пео╒, ╩Р©увж╢╝(ц╩спхн╨н╤╘╣╔пео╒).
+	 * @return О©╫О©╫О©╫О©╫О©╫ц╥ж╨О©╫';'О©╫ж╦О©╫д╤О©╫О©╫О©╫О©╫О©╫О©╫п╠О©╫, О©╫О©╫О©╫О©╫о╦О©╫д╤О©╫О©╫О©╫О©╫О©╫о╒, О©╫О©╫О©╫О©╫ж╢О©╫(ц╩О©╫О©╫О©╫н╨н╤О©╫О©╫О©╫О©╫О©╫о╒).
 	 * 
 	 * @see #regUser(String, String, String)
 	 * 
@@ -571,7 +592,7 @@ class FlightService {
 		 {
 			 bookings = Booking.list()
 		 }
-		 def orders = "[пР╨е Index]\t[╤╘╣╔╨еOrder]\t[ЁЖ╥╒хуфзDate]\t[ЁЖ╥╒S]\t[╣╫╢ОD]\t[╨╫╟ЮF]\t[вЫн╩Seat]\t[╤╘╣╔в╢л╛Status]\t[йЩа©Total]\t[вэ╪шAmount Due]\r\n"
+		 def orders = "[О©╫О©╫О©╫ Index]\t[О©╫О©╫О©╫О©╫О©╫О©╫Order]\t[О©╫О©╫О©╫О©╫О©╫О©╫Date]\t[О©╫О©╫S]\t[О©╫О©╫О©╫О©╫D]\t[О©╫О©╫О©╫О©╫F]\t[О©╫О©╫н╩Seat]\t[О©╫О©╫О©╫О©╫в╢л╛Status]\t[О©╫О©╫Total]\t[О©╫э╪О©╫Amount Due]\r\n"
 		 def i = 0
 		 bookings.each
 		 {
@@ -584,13 +605,13 @@ class FlightService {
 	 }
 
 	/**
-	 * ╩Ях║уш©ш╡ъбт╤╗рЕпео╒
+	 * О©╫О©╫х║О©╫ш©ш╡О©╫О©╫т╤О©╫О©╫О©╫О©╫О©╫о╒
 	 * 
 	 * <br/><br/>
-	 * оЙо╦уш©ш╡ъбтпео╒. ╡исцXMLпнй╫цХйЖ, ╪ШStrategySchema.xsdт╪╤╗╨мStrategyDemo.xmlй╬юЩ.
+	 * О©╫О©╫о╦О©╫ш©ш╡О©╫О©╫О©╫О©╫О©╫о╒. О©╫О©╫О©╫О©╫XMLО©╫О©╫й╫О©╫О©╫О©╫О©╫, О©╫О©╫StrategySchema.xsdт╪О©╫О©╫О©╫О©╫StrategyDemo.xmlй╬О©╫О©╫.
 	 * <br/>
 	 * 
-	 * @return оЙо╦уш©ш╡ъбтпео╒. ╡исцXMLпнй╫цХйЖ, ╪ШStrategySchema.xsdт╪╤╗╨мStrategyDemo.xmlй╬юЩ.
+	 * @return О©╫О©╫о╦О©╫ш©ш╡О©╫О©╫О©╫О©╫О©╫о╒. О©╫О©╫О©╫О©╫XMLО©╫О©╫й╫О©╫О©╫О©╫О©╫, О©╫О©╫StrategySchema.xsdт╪О©╫О©╫О©╫О©╫StrategyDemo.xmlй╬О©╫О©╫.
 	 * 
 	 * @see #updateStrategies(String, String, String)
 	 * 
@@ -610,180 +631,212 @@ class FlightService {
 	 }
 
 	/**
-	 * ╦Эпбрясп╣душ©ш╡ъбт╤╗рЕпео╒
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫п╣О©╫О©╫ш©ш╡О©╫О©╫т╤О©╫О©╫О©╫О©╫О©╫о╒
 	 * 
 	 * <br/><br/>
-	 * ╦Эпбж╝╨С, ╡╩╠ьжьпбфТ╤╞╥ЧнЯ,пб╣д╡ъбт╤╗рЕ╬мс╕╦ц╠╩с╕сц.<br/>
+	 * О©╫О©╫О©╫О©╫ж╝О©╫О©╫, О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫,О©╫б╣д╡О©╫О©╫т╤О©╫О©╫О©╫О©╫с╕О©╫ц╠О©╫с╕О©╫О©╫.<br/>
 	 * <br/>
-	 * ж╩сп╥ЧнЯлА╧╘ил╡еспх╗н╛╩╓уш©ш╡ъбт╤╗рЕпео╒, с╕╫Шж╧фДкШсц╩╖ж╢пп╦ц╡ывВ.<br/>
-	 * ╣Всц╦ц╥╫╥╗й╠, ╠ьпКж╦╤╗спп╖╣дсц╩╖цШЁф/цэбК.
+	 * ж╩О©╫п╥О©╫О©╫О©╫О©╫А╧╘О©╫л╡О©╫О©╫О©╫х╗н╛О©╫О©╫О©╫ш©ш╡О©╫О©╫т╤О©╫О©╫О©╫О©╫О©╫о╒, с╕О©╫О©╫ж╧О©╫О©╫О©╫О©╫О©╫ц╩О©╫ж╢О©╫п╦ц╡О©╫О©╫О©╫.<br/>
+	 * О©╫О©╫О©╫ц╦ц╥О©╫О©╫О©╫й╠, О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫п╖О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫/О©╫О©╫О©╫О©╫.
 	 * <br/>
 	 * 
-	 * @param username сц╩╖цШЁф, ╡╩с╕н╙©у
-	 * @param password сц╩╖цэбК, ╡╩с╕н╙©у
-	 * @param newStrategies пб╣д╡ъбт╤╗рЕ, ╡исцXMLпнй╫цХйЖ, ╪ШStrategySchema.xsdт╪╤╗╨мStrategyDemo.xmlй╬юЩ.
+	 * @param username О©╫ц╩О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param password О©╫ц╩О©╫О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param newStrategies О©╫б╣д╡О©╫О©╫т╤О©╫О©╫О©╫, О©╫О©╫О©╫О©╫XMLО©╫О©╫й╫О©╫О©╫О©╫О©╫, О©╫О©╫StrategySchema.xsdт╪О©╫О©╫О©╫О©╫StrategyDemo.xmlй╬О©╫О©╫.
 	 * 
-	 * @return йг╥Я╦ЭпбЁи╧╕. >0: Ёи╧╕; <=0: й╖╟э. 
+	 * @return О©╫г╥О©╫О©╫О©╫бЁи╧О©╫. >0: О©╫и╧О©╫; <=0: й╖О©╫О©╫. 
 	 * 
 	 * @see #listStrategies()
 	 * 
 	 */
 	public int updateStrategies( String username, String password, String n )
 	 {
-		 try{
-		 if(username != "partner" || password != "12345678")return -1
 		 def stra = Strategy.findByType("wsRule")
 		 stra.rule = n
-		 
-		 def builder     = DocumentBuilderFactory.newInstance().newDocumentBuilder()
-		 def inputStream = new StringBufferInputStream(n)
-		 def records     = builder.parse(inputStream).documentElement
-		 def stra_s = new HashMap()
-		 
-		 //transform xml into hashmap for easy access
-		 records.childNodes.each
-		 {
-			 if(it.nodeName == "strategy")
+		 try{
+		 //if(username != "partner" || password != "12345678")return -1
+			 def member = Member.findByNick(username)
+			 
+			 if(member == null)
 			 {
-				 def tx = it.attributes.getNamedItem("type").nodeValue
+				 println "no such user"
+				 return "no such user"
+			 }
+			 
+			 if(member.password != password){
+				 println "auth failed"
+				 return "auth failed"
+			 }
+		 
+			 def builder     = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+			 println n
+			 def inputStream = new StringBufferInputStream(n)
+			 def records     = builder.parse(inputStream).documentElement
+			 def stra_s = new HashMap()
+		 try{
+			 //transform xml into hashmap for easy access
+			 records.childNodes.each
+			 {
+				 if(it.nodeName == "strategy")
+				 {
+					 def tx = it.attributes.getNamedItem("type").nodeValue
+					 
+					 //println it.nodeName+"\t"+tx
+					 stra_s[tx] = []
+				 	it.childNodes.each
+				 	{
+						 if(it.nodeName == "rule")
+						 {
+							 def rule = new HashMap()
+							 if(it.attributes.getNamedItem("arg1")!=null)
+							 {
+								 rule.arg1 = it.attributes.getNamedItem("arg1").nodeValue
+							 }
+							 if(it.attributes.getNamedItem("arg2")!=null)
+							 {
+								 rule.arg2 = it.attributes.getNamedItem("arg2").nodeValue
+							 }
+							 if(it.attributes.getNamedItem("arg3")!=null)
+							 {
+								 rule.arg3 = it.attributes.getNamedItem("arg3").nodeValue
+							 }
+							// println "\t"+it.nodeName+" "+" "+it.attributes.getNamedItem("arg1")+" "+it.attributes.getNamedItem("arg2")+" "+it.attributes.getNamedItem("arg3")
+							 it.childNodes.each
+							 {
+								 rule.value = it.nodeValue
+								 //println "\t\tvalue="+it.nodeValue
+							 }
+							 stra_s[tx]+= rule
+						 }
+				 	}
+				 }
+			 }
+			 
+			 //println stra_s
+			 //def newstrats = new org.mortbay.xml.XmlParser().parse(new StringBufferInputStream(n))
+			 //println newstrats
+	
+			 if(stra.save())
+			 {
+				 //only accept t1 to t3
+				 def i
+				 def tt1 = Strategy.findAllWhere(type:"t1")
 				 
-				 //println it.nodeName+"\t"+tx
-				 stra_s[tx] = []
-			 	it.childNodes.each
-			 	{
-					 if(it.nodeName == "rule")
+				 i = 0
+				 stra_s.t1.each
+				 {
+					 def ffpLevel=["","Normal","VIP","Gold","Platium","Premier"]
+					 def tt11 = tt1[i]
+					 
+					 if(tt11 == null)tt11 = new Strategy()
+					 tt11.rule = "ffpLevel == \""+ffpLevel[Integer.parseInt(it.arg1)]+"\""
+					 tt11.type = "t1"
+					 tt11.description = "Frequent Flyer"
+					 tt11.discount = 100-(new Double(it.value))*100
+					 
+					 println tt11
+					 tt11.save()
+					 ++i
+				 }
+				 
+				 i = 0
+				 def tt2 = Strategy.findAllWhere(type:"t2")
+				 stra_s.t2.each
+				 {
+					def tt21 = tt2[i]
+					 
+					 if(tt21 == null)tt21 = new Strategy()
+					 tt21.rule = "travelTime >= new Date(\"2000/1/1 "+it.arg1+"\") && travelTime <= new Date(\"2000/1/1 "+it.arg2+"\")"
+					 tt21.type = "t2"
+					 tt21.description = "t2 Specific range"
+					 tt21.discount = 100-(new Double(it.value))*100
+					 
+					 println tt21
+					 tt21.save()
+					 ++i
+				 }
+				 
+				 i = 0
+				 def tt3 = Strategy.findAllWhere(type:"t3")
+				 stra_s.t3.each
+				 {
+					 def tt31 = tt3[i]
+					 
+					 if(tt31 == null)tt31 = new Strategy()
+					 
+					 if(it.arg3 == "0")
 					 {
-						 def rule = new HashMap()
-						 if(it.attributes.getNamedItem("arg1")!=null)
-						 {
-							 rule.arg1 = it.attributes.getNamedItem("arg1").nodeValue
-						 }
-						 if(it.attributes.getNamedItem("arg2")!=null)
-						 {
-							 rule.arg2 = it.attributes.getNamedItem("arg2").nodeValue
-						 }
-						 if(it.attributes.getNamedItem("arg3")!=null)
-						 {
-							 rule.arg3 = it.attributes.getNamedItem("arg3").nodeValue
-						 }
-						// println "\t"+it.nodeName+" "+" "+it.attributes.getNamedItem("arg1")+" "+it.attributes.getNamedItem("arg2")+" "+it.attributes.getNamedItem("arg3")
-						 it.childNodes.each
-						 {
-							 rule.value = it.nodeValue
-							 //println "\t\tvalue="+it.nodeValue
-						 }
-						 stra_s[tx]+= rule
+						 tt31.rule = "true"
 					 }
-			 	}
+					 else
+					 {
+						 tt31.rule = "travelDate >= new Date(\""+it.arg1.replace('-', '/')+"\") && travelDate <= new Date(\""+it.arg2.replace('-', '/')+"\")"
+					 }
+					 tt31.type = "t3"
+					 tt31.description = "t3 Busy season or not"
+					 tt31.discount = 100-(new Double(it.value))*100
+					 
+					 println tt31
+					 tt31.save()
+					 ++i
+				 }
+				 
+				 return 1
 			 }
-		 }
-		 
-		 //println stra_s
-		 //def newstrats = new org.mortbay.xml.XmlParser().parse(new StringBufferInputStream(n))
-		 //println newstrats
-
-		 if(stra.save())
+			 else
+			 {
+				 stra.errors.each { error ->
+		          println error
+				 }
+			 }
+			 }catch(Exception ex)
+			 {
+				 println ex
+		 	}
+		 }catch(Exception )
 		 {
-			 //only accept t1 to t3
-			 def i
-			 def tt1 = Strategy.findAllWhere(type:"t1")
-			 
-			 i = 0
-			 stra_s.t1.each
-			 {
-				 def ffpLevel=["","Normal","VIP","Gold","Platium","Premier"]
-				 def tt11 = tt1[i]
-				 
-				 if(tt11 == null)tt11 = new Strategy()
-				 tt11.rule = "ffpLevel == \""+ffpLevel[Integer.parseInt(it.arg1)]+"\""
-				 tt11.type = "t1"
-				 tt11.description = "Frequent Flyer"
-				 tt11.discount = 100-(new Double(it.value))*100
-				 
-				 println tt11
-				 tt11.save()
-				 ++i
-			 }
-			 
-			 i = 0
-			 def tt2 = Strategy.findAllWhere(type:"t2")
-			 stra_s.t2.each
-			 {
-				def tt21 = tt2[i]
-				 
-				 if(tt21 == null)tt21 = new Strategy()
-				 tt21.rule = "travelTime >= new Date(\"2000/1/1 "+it.arg1+"\") && travelTime <= new Date(\"2000/1/1 "+it.arg2+"\")"
-				 tt21.type = "t2"
-				 tt21.description = "t2 Specific range"
-				 tt21.discount = 100-(new Double(it.value))*100
-				 
-				 println tt21
-				 tt21.save()
-				 ++i
-			 }
-			 
-			 i = 0
-			 def tt3 = Strategy.findAllWhere(type:"t3")
-			 stra_s.t3.each
-			 {
-				 def tt31 = tt3[i]
-				 
-				 if(tt31 == null)tt31 = new Strategy()
-				 
-				 if(it.arg3 == "0")
-				 {
-					 tt31.rule = "true"
-				 }
-				 else
-				 {
-					 tt31.rule = "travelDate >= new Date(\""+it.arg1.replace('-', '/')+"\") && travelDate <= new Date(\""+it.arg2.replace('-', '/')+"\")"
-				 }
-				 tt31.type = "t3"
-				 tt31.description = "t3 Busy season or not"
-				 tt31.discount = 100-(new Double(it.value))*100
-				 
-				 println tt31
-				 tt31.save()
-				 ++i
-			 }
-			 
+			 println "save xml string of strategies"
+			 stra.save()
 			 return 1
-		 }
-		 else
-		 {
-			 stra.errors.each { error ->
-	          println error
-			 }
-		 }
-		 }catch(Exception ex)
-		 {
-			 println ex
 		 }
 		 return -1
 	 }
 
 	/**
-	 * лМ╪ср╩╦Жпб╣д, ╩Р╦Эпбрясп╣д╨╫╟Ю/╩Зф╠пео╒
+	 * О©╫О©╫О©╫р╩О©╫О©╫О©╫б╣О©╫, О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫п╣д╨О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫о╒
 	 * 
 	 * <br/><br/>
-	 * сцю╢лМ╪ср╩╦Жпб╣д╨╫╟Ю/╩Зф╠пео╒(хГ╧ШFlight.idвж╤н╣дж╣нчп╖/╡╩╢Фтз), ╩Руъ<br/>
-	 * ╦Эпбрясп╣д╨╫╟Ю/╩Зф╠пео╒(хГ╧ШFlight.idвж╤н╣дж╣╢Фтз).<br/>
+	 * О©╫О©╫4О©╫О©╫О©╫р╩О©╫О©╫О©╫б╣д╨О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫о╒(О©╫О©╫О©╫Flight.idО©╫ж╤н╣О©╫ж╣О©╫О©╫п╖/О©╫О©╫О©╫О©╫О©╫О©╫), О©╫О©╫О©╫О©╫<br/>
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫п╣д╨О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫о╒(О©╫О©╫О©╫Flight.idО©╫ж╤н╣О©╫ж╣О©╫О©╫О©╫О©╫).<br/>
 	 * <br/>
-	 * ж╩сп╥ЧнЯлА╧╘ил╡еспх╗н╛╩╓╨╫╟Ю/╩Зф╠╤╗рЕпео╒, с╕╫Шж╧фДкШсц╩╖ж╢пп╦ц╡ывВ.<br/>
-	 * ╣Всц╦ц╥╫╥╗й╠, ╠ьпКж╦╤╗спп╖╣дсц╩╖цШЁф/цэбК.
+	 * ж╩О©╫п╥О©╫О©╫О©╫О©╫А╧╘О©╫л╡О©╫О©╫О©╫х╗н╛О©╫О©╫О©╫О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫О©╫О©╫О©╫О©╫о╒, с╕О©╫О©╫ж╧О©╫О©╫О©╫О©╫О©╫ц╩О©╫ж╢О©╫п╦ц╡О©╫О©╫О©╫.<br/>
+	 * О©╫О©╫О©╫ц╦ц╥О©╫О©╫О©╫й╠, О©╫О©╫О©╫О©╫ж╦О©╫О©╫О©╫О©╫п╖О©╫О©╫О©╫ц╩О©╫О©╫О©╫О©╫/О©╫О©╫О©╫О©╫.
 	 * <br/>
 	 * 
-	 * @param username сц╩╖цШЁф, ╡╩с╕н╙©у
-	 * @param password сц╩╖цэбК, ╡╩с╕н╙©у
-	 * @param flight   р╩╦Жпб╣д, ╩Ррясп╣д╨╫╟Ю/╩Зф╠╤╗рЕпео╒
+	 * @param username О©╫ц╩О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param password О©╫ц╩О©╫О©╫О©╫О©╫О©╫, О©╫О©╫с╕н╙О©╫О©╫
+	 * @param flight   р╩О©╫О©╫О©╫б╣О©╫, О©╫О©╫О©╫О©╫О©╫п╣д╨О©╫О©╫О©╫/О©╫О©╫ф╠О©╫О©╫О©╫О©╫О©╫О©╫о╒
 	 * 
-	 * @return йг╥ЯлМ╪с/╦ЭпбЁи╧╕. >0: Ёи╧╕; <=0: й╖╟э. 
+	 * @return О©╫г╥О©╫О©╫О©╫О©╫/О©╫О©╫О©╫бЁи╧О©╫. >0: О©╫и╧О©╫; <=0: й╖О©╫О©╫. 
 	 * 
 	 */
 	public int updateData( String username, String password, net.seproject.ws.flight.Flight f )
 	 {
 		 try{
-			 if(username != "partner" || password != "12345678")return -1
+			 //if(username != "partner" || password != "12345678")return -1
+			 def member = Member.findByNick(username)
+			 
+			 if(member == null)
+			 {
+				 println "no such user"
+				 return null
+			 }
+			 
+			 if(member.password != password){
+				 println "auth failed"
+				 return null
+			 }
+			 
 			 def flight = Flight.findByNumber(f.id)
 			 if(flight == null)
 			 {
@@ -919,10 +972,10 @@ class FlightService {
 	 }
 
 	/**
-	 * в╒╡Ажппд╪Юйс╥ЧнЯ╥цнй╣дstub╥╫╥╗
+	 * в╒О©╫О©╫О©╫О©╫О©╫д╪О©╫О©╫с╥О©╫О©╫О©╫О©╫О©╫й╣О©╫stubО©╫О©╫О©╫О©╫
 	 * 
 	 * <br/><br/>
-	 * ╟╢ууобцФй╣ож╦ц╫с©з╪╢©и:<br/>
+	 * О©╫О©╫О©╫О©╫О©╫О©╫О©╫О©╫й╣О©╫ж╦ц╫с©з╪О©╫О©╫О©╫:<br/>
 	 * <br/>
 	 * private static int internalCounter = 0;<br/>
 	 * <br/>
@@ -937,7 +990,7 @@ class FlightService {
 	 * <br/>
 	 * 
 	 * @param flag
-	 * @return дз╡©╪фйЩж╣(internalCounter)
+	 * @return О©╫з╡О©╫О©╫О©╫О©╫О©╫ж╣(internalCounter)
 	 */
 	public int getServiceState(int flag)
 	 {

@@ -41,6 +41,6 @@ class SeatClass {
 	
 	Strategy chooseStrategy(d, member)
 	{
-		return new FlightServiceService().chooseBestStrategy(["flight":flight,"date":d, "member":member])
+		return new FlightService().chooseBestStrategy(["flight":flight,"date":d, "member":member])
 	}
 }	
