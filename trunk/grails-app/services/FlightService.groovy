@@ -364,6 +364,7 @@ class FlightService {
 		 
 		 
 		 
+		 println "finish search flight"
 		 return flist;
 	 }
 
@@ -592,7 +593,7 @@ class FlightService {
 		 {
 			 bookings = Booking.list()
 		 }
-		 def orders = "[��� Index]\t[������Order]\t[������Date]\t[��S]\t[����D]\t[����F]\t[��λSeat]\t[����״̬Status]\t[��Total]\t[�ܼ�Amount Due]\r\n"
+		 def orders = "[Index]\t[Order]\t[Date]\t[S]\t[D]\t[F]\t[Seat]\t[Status]\t[Total]\t[Amount Due]\r\n"
 		 def i = 0
 		 bookings.each
 		 {
@@ -652,6 +653,15 @@ class FlightService {
 	public int updateStrategies( String username, String password, String n )
 	 {
 		 def stra = Strategy.findByType("wsRule")
+		 if(stra == null)
+		 {
+			 stra = new Strategy()
+			 stra.type = "wsRule"
+			 stra.description = "Created by WS"
+			 stra.discount = 0.0
+			 stra.rule = n
+			 stra.save()
+		 }
 		 stra.rule = n
 		 try{
 		 //if(username != "partner" || password != "12345678")return -1
@@ -670,7 +680,7 @@ class FlightService {
 		 
 			 def builder     = DocumentBuilderFactory.newInstance().newDocumentBuilder()
 			 println n
-			 def inputStream = new StringBufferInputStream(n)
+			 def inputStream = new ByteArrayInputStream(n.getBytes("utf-8"))
 			 def records     = builder.parse(inputStream).documentElement
 			 def stra_s = new HashMap()
 		 try{
@@ -725,6 +735,7 @@ class FlightService {
 				 i = 0
 				 stra_s.t1.each
 				 {
+					 try{
 					 def ffpLevel=["","Normal","VIP","Gold","Platium","Premier"]
 					 def tt11 = tt1[i]
 					 
@@ -736,6 +747,7 @@ class FlightService {
 					 
 					 println tt11
 					 tt11.save()
+					 }catch(Exception){}
 					 ++i
 				 }
 				 
@@ -745,6 +757,7 @@ class FlightService {
 				 {
 					def tt21 = tt2[i]
 					 
+					
 					 if(tt21 == null)tt21 = new Strategy()
 					 tt21.rule = "travelTime >= new Date(\"2000/1/1 "+it.arg1+"\") && travelTime <= new Date(\"2000/1/1 "+it.arg2+"\")"
 					 tt21.type = "t2"
